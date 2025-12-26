@@ -26,7 +26,7 @@ poetry env info
 
 ```
 
-- copy tz-script repo in a folder
+- copy sample repo in a folder
 - copy `.env` and `.streamlit/config.toml` to that folder
 - go to folder and install package dependencies
 
@@ -62,7 +62,7 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/opt/project/path/tz-script
+WorkingDirectory=/opt/project/path/sample
 Environment="HOME=/root"
 Environment="PYTHONUNBUFFERED=1"
 Environment="PATH=/root/.local/bin:/usr/local/bin:/usr/bin:/bin"

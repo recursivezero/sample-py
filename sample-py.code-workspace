@@ -153,7 +153,7 @@
       "servers": {}
     },
     "chat.mcp.serverSampling": {
-      "tz-script.code-workspace: my-mcp-server-c37295de": {
+      "sample-py.code-workspace: my-mcp-server-c37295de": {
         "allowedModels": [
           "copilot/gpt-4.1",
           "copilot/claude-3.5-sonnet"

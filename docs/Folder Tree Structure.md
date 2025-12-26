@@ -113,7 +113,7 @@
      │    ├── doc.html
      │    └── index.html
      ├── trace_entry.py
-     └── tz-script.code-workspace
+     └── *.code-workspace
      ```
 
 ````

@@ -9,10 +9,11 @@
 
 ### How to Start
 
-1. Navigate to the project root:
+1. Clone the Repo
+2. Navigate to the project root
 
 ```sh
-  cd /project/tz-script
+  cd /project/sample
 ```
 
 2. install required packages

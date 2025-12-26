@@ -51,7 +51,7 @@ poetry env list
 
 this output something like this
 
-> tz-script-fBo1usnc-py3.12 (Activated)
+> sample-fBo1usnc-py3.12 (Activated)
 
 now delete using version showing at the end of the environment name
 
@@ -77,8 +77,8 @@ Python:  3.12.7
 Virtualenv
 Python:         3.12.7
 Implementation: CPython
-Path:           ~/Library/Caches/pypoetry/virtualenvs/tz-script-7YHTbn9s-py3.12
-Executable:     ~/Library/Caches/pypoetry/virtualenvs/tz-script-7YHTbn9s-py3.12/bin/python
+Path:           ~/Library/Caches/pypoetry/virtualenvs/sample-7YHTbn9s-py3.12
+Executable:     ~/Library/Caches/pypoetry/virtualenvs/sample-7YHTbn9s-py3.12/bin/python
 Valid:          True
 
 Base
