@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 
 def faq_page():
     # Load CSS
-    st.title(":blue[❓Threadzip-FAQs]")
+    st.title(":blue[❓FAQs]")
     css = Path(r"templates/faq.css").read_text()
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 

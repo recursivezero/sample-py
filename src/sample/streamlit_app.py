@@ -8,7 +8,7 @@ if package_root not in sys.path:
     sys.path.append(package_root)
 
 # --- Imports ---
-from utils.constants import COMPANY_LOGO
+from utils.constants import COMPANY_LOGO, FAQ_TITLE
 from utils.faq import faq_page
 from utils.load_messages import get_msg
 from features.greeting import greet
@@ -39,7 +39,7 @@ def main():
         st.Page(greet, title="Greeting Page", icon="🖌️", url_path="/greet"),
         st.Page(
             faq_page,
-            title="FAQ",
+            title=FAQ_TITLE,
             icon="❓",
             url_path="/faq",
         ),

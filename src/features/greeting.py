@@ -2,8 +2,7 @@ import streamlit as st
 
 from utils.constants import (
     APP_TITLE,
-    DEFAULT_GREETING,
-    FAQ_TITLE,
+    DEFAULT_GREETING
 )
 from utils.helper import normalize_name
 from utils.faq import faq_page
@@ -18,6 +17,3 @@ def greet():
 
     if clean_name:
         st.success(f"{DEFAULT_GREETING}, {clean_name} 👋")
-
-    with st.expander(FAQ_TITLE):
-        faq_page()

@@ -147,7 +147,7 @@ Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcem
 [homepage]: https://www.contributor-covenant.org
 
 For answers to common questions about this code of conduct
-see the FAQ at <https://www.contributor-covenant.org/faq>.
+see the FAQs at <https://www.contributor-covenant.org/faq>.
 Translations are available at <https://www.contributor-covenant.org/translations>.
 
 [contact]: mailto:recursivezero@outlook.com
