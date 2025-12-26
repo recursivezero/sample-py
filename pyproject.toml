@@ -1,0 +1,63 @@
+[project]
+name = "sample"
+version = "0.0.1"
+description = "A package template for Recursive zero."
+authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+keywords = ["image", "fastapi", "streamlit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+  "fastapi (>=0.121.1,<0.122.0)",
+  "streamlit>=1.49.0",
+  "python-box (>=7.3.2,<8.0.0)",
+  "uvicorn (>=0.40.0,<0.41.0)",
+]
+
+
+[tool.poetry]
+packages = [
+  { include = "sample", from = "src" },
+  { include = "features", from = "src" },
+  { include = "utils", from = "src" },
+  { include = "api", from = "src" },
+  { include = "assets/images/logo.png", from = "src" },
+]
+
+
+[project.scripts]
+sample = "sample.cli:cli"
+lint = "utils.lint:main"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+flake8 = "^7.1.1"
+mypy = "^1.14.1"
+pip-audit = "^2.9.0"
+pipreqs = "0.5.0"
+ruff = "0.5.3"
+twine = "^6.2.0"
+vulture = "^2.3"
+
+[tool.flake8]
+max_line_length = 190
+
+[tool.poetry.requires-plugins]
+poetry-plugin-export = "^1.9"
+
+[tool.poetry-auto-export]
+output = "requirements.txt"
+without_hashes = true
+without = ["dev"]
+
+[tool.poetry-audit]
+ignore = []
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

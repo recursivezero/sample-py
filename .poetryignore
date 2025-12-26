@@ -1,0 +1,41 @@
+# Ignore Python cache and venv
+
+**pycache**/
+_.py[cod]
+_.so
+\*.egg-info/
+.venv/
+venv/
+env/
+
+## Ignore build output
+
+build/
+dist/
+_.egg
+_.whl
+
+## Ignore IDE/editor settings
+
+.vscode/
+.idea/
+_.swp
+_.bak
+
+## Ignore local config and test logs
+
+.env
+.env.\*
+\*.log
+
+## Ignore test data/output
+
+tests/
+_.test._
+debug*\*.py
+trace*\*.py
+
+## Ignore OS files
+
+.DS_Store
+Thumbs.db

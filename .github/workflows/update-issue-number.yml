@@ -1,0 +1,29 @@
+name: "Auto Replace X in Issue Title"
+
+on:
+  issues:
+    types: [opened,labeled]
+permissions:
+  issues: write
+
+jobs:
+  update_issue_title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Replace 'X' with issue number
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE_NUMBER=${{ github.event.issue.number }}
+          OLD_TITLE="${{ github.event.issue.title }}"
+
+          # Pad the issue number to 4 digits (e.g., 1 -> 0001)
+          PADDED_NUM=$(printf "%04d" "$ISSUE_NUMBER")
+
+          # Replace '000X' with the padded issue number in the title
+          NEW_TITLE=$(echo "$OLD_TITLE" | sed "s/000X/$PADDED_NUM/g")
+
+          # Update issue title using GitHub API
+          gh issue edit "$ISSUE_NUMBER" --title "$NEW_TITLE" --repo "${{ github.repository }}"
+        shell: bash
+

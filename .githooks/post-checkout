@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+# DRY RUN GUARD
+if [ "$DRY_RUN" = "1" ]; then
+    echo "[DRY RUN] Hook executed: $(basename "$0")"
+    exit 0
+fi
+
+git diff --name-only HEAD@{1} HEAD | grep -q "poetry.lock" || exit 0
+
+echo "[post-checkout] regenerating requirements.txt"
+
+poetry export -f requirements.txt -o requirements.txt --without-hashes

@@ -1,0 +1,24 @@
+{
+  "default": true,
+  "MD003": {
+    "style": "consistent"
+  },
+  "MD029": false,
+  "MD033": {
+    "allowed_elements": [
+      "summary",
+      "details",
+      "mark"
+    ]
+  },
+  "MD007": {
+    "indent": 2
+  },
+  "MD013": {
+    "line_length": 240,
+    "code_block_line_length": 100,
+    "tables": false
+  },
+  "no-hard-tabs": false,
+  "whitespace": false
+}

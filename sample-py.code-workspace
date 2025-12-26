@@ -1,0 +1,170 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.zoomLevel": 0.5,
+    "editor.suggestSelection": "first",
+    "editor.bracketPairColorization.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.comments.insertSpace": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
+    "zenMode.centerLayout": false,
+    "prettier.printWidth": 120,
+    "workbench.list.multiSelectModifier": "alt",
+    "editor.defaultFormatter": null,
+    "editor.linkedEditing": true,
+    "editor.multiCursorModifier": "alt",
+    "scss.lint.emptyRules": "ignore",
+    "editor.formatOnSave": true,
+    "prettier.singleQuote": false,
+    "explorer.confirmDelete": false,
+    "editor.snippetSuggestions": "top",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "file-icons",
+    "git.confirmSync": false,
+    "workbench.startupEditor": "none",
+    "window.autoDetectColorScheme": true,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "pyproject.toml": "poetry.lock,ruff.toml,.pip-audit.toml",
+      ".gitignore": ".prettier*, .poetryignore, .editorconfig, .eslint*, .npm*, .markdown*, .flake8, .env*, mypy.ini",
+      "README.md": "*.md, requirements.txt,packages.txt",
+      "LICENSE": "LICENSE-*"
+    },
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "explorer.excludeGitIgnore": false,
+    "git.branchPrefix": "feature/TZP-2500",
+    "git.branchRandomName.enable": true,
+    "git.branchRandomName.dictionary": [
+      "animals",
+      "numbers"
+    ],
+    "search.showLineNumbers": true,
+    "workbench.editorAssociations": {
+      "*.log": "default"
+    },
+    "editor.minimap.enabled": true,
+    "workbench.colorTheme": "Tokyo Night Storm",
+    "editor.fontSize": 14,
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.size": "fit",
+    "cSpell.customDictionaries": {
+      "myDictionary": {
+        "name": "myDictionary",
+        "path": "~/myDictionary.txt",
+        "scope": "user",
+        "addWords": true
+      },
+      "custom": true
+    },
+    "debug.javascript.codelens.npmScripts": "never",
+    "editor.detectIndentation": false,
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#6d4589",
+      "activityBar.background": "#6d4589",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#2a2215",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "commandCenter.border": "#e7e7e799",
+      "sash.hoverBorder": "#6d4589",
+      "statusBar.background": "#523467",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#6d4589",
+      "statusBarItem.remoteBackground": "#523467",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#523467",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#52346799",
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "sideBar.border": "#6d4589"
+    },
+    "peacock.color": "#523467",
+    "cSpell.words": [],
+    "files.autoSave": "onFocusChange",
+    "editor.dragAndDrop": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.formatOnSaveMode": "file",
+    "files.eol": "\r\n",
+    "files.readonlyExclude": {
+      "dist/**": true
+    },
+    "window.title": "${rootNameShort}${separator}${activeEditorShort}${separator}${activeFolderMedium}",
+    "explorer.fileNesting.expand": false,
+    "search.exclude": {
+      ".venv": true,
+      ".venv-dist": true,
+      ".venv**": true,
+      "dist/**": true,
+      "package-lock.json": true
+    },
+    "peacock.affectSideBarBorder": true,
+    "prettier.quoteProps": "consistent",
+    "prettier.documentSelectors": [
+      "**/*.astro"
+    ],
+    "git.branchProtection": [
+      "develop",
+      "main"
+    ],
+    "git.enableCommitSigning": false,
+    "git.postCommitCommand": "push",
+    "workbench.tree.enableStickyScroll": false,
+    "editor.stickyScroll.enabled": true,
+    "workbench.editor.pinnedTabSizing": "shrink",
+    "prettier.trailingComma": "none",
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "workbench.layoutControl.enabled": false,
+    "[markdown]": {
+      "diffEditor.ignoreTrimWhitespace": true
+    },
+    "files.readonlyInclude": {
+      ".githooks/**": true,
+      ".venv/**": true
+    },
+    "workbench.editor.pinnedTabsOnSeparateRow": true,
+    "python.defaultInterpreterPath": "",
+    "python.terminal.activateEnvironment": false,
+    "python.analysis.importFormat": "absolute",
+    "python.analysis.extraPaths": [
+      "./src"
+    ],
+    "files.exclude": {
+      ".poetry/**": true,
+      "**/.git": false
+    },
+    "mcp": {
+      "inputs": [],
+      "servers": {}
+    },
+    "chat.mcp.serverSampling": {
+      "tz-script.code-workspace: my-mcp-server-c37295de": {
+        "allowedModels": [
+          "copilot/gpt-4.1",
+          "copilot/claude-3.5-sonnet"
+        ]
+      }
+    },
+    "gitstash.explorer.display.fileSorting": "tree",
+    "folderStructure.ignorePatterns": [
+      "node_modules",
+      ".*",
+      "__pycache__"
+    ],
+  }
+}

@@ -1,0 +1,132 @@
+<!-- Add this in cloud on /var/www/html/ folder -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:title" content="Threadzip Fabric Lab">
+  <meta property="og:description" content="A powerful tool for visualizing fabric analysis and research">
+  <meta property="og:image" content="https://app.sample.com/threadzip_logo_white.png">
+  <meta property="og:url" content="https://lab.sample.com">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Threadzip Fabric Dashboard">
+  <meta property="twitter:description" content="A powerful tool for fabric related operations using AI">
+  <meta property="twitter:image" content="https://app.sample.com/threadzip_logo_black.png">
+  <title>Threadzip Lab - AI Fabric Analysis</title>
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .loading {
+      margin: 20px 0;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-top: 4px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .redirect-text {
+      font-size: 1rem;
+      margin-top: 20px;
+      opacity: 0.8;
+    }
+
+    .btn {
+      display: inline-block;
+      background: white;
+      color: #667eea;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <!-- Redirect to main app after 0 seconds -->
+  <!--<meta http-equiv="refresh" content="0; url=https://lab.sample.com">-->
+</head>
+
+<body>
+  <p>Redirecting to Threadzip Lab... <a href="https://lab.sample.com">Click here if not redirected</a></p>
+</body>
+
+</html>

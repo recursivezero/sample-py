@@ -1,0 +1,18 @@
+[flake8]
+# Exclude unnecessary directories
+exclude = .git, __pycache__, site-packages, .venv, build, dist,.venv-dist
+
+# Ignore specific error codes
+ignore = W605, W503,W291,E203,E402 ,W293,W292
+
+# Set maximum line length
+max-line-length = 200
+
+# Set maximum complexity
+max-complexity = 50
+
+# Select specific error codes to check
+select = E, F, W, C90
+
+# Disable the checking of `noqa` comments
+disable-noqa = False

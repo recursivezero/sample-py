@@ -1,0 +1,131 @@
+# Fabric Generator and Search Utility
+
+A Streamlit template for Recursive Zero repository
+
+## Installation Guide
+
+## Prerequisites
+
+- Python ≥ 3.11
+- Poetry ≥ 2.2.1
+- Streamlit ≥ 1.49.1
+
+## Getting Started
+
+- [Unix/macOS Setup Guide](./docs/setup-for-osx.md)
+
+- [Windows Setup Guide](./docs/setup-for-windows.md)
+
+## Poetry Setup
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+# OR
+pip install poetry>=2.2.1
+```
+
+## Virtual Environment Configuration
+
+```bash
+poetry config virtualenvs.path /your/desired/path
+```
+
+Ensure below files are configured (create if not exist) properly to run the project;
+
+- `.env.local`,
+- `.env`, and
+- `.streamlit/secrets.toml`
+
+## Install Dependencies
+
+```bash
+poetry lock --no-cache --regenerate
+poetry install  --with dev
+```
+
+Or manually
+
+```bash
+poetry install
+```
+
+## How to Run
+
+## Run Streamlit App
+
+```bash
+poetry run sample dev
+```
+
+Access: <http://localhost:8501>
+
+## Run FastAPI Server
+
+```bash
+poetry run sample api
+# OR
+python src/api/fast_api.py
+```
+
+Access: <http://127.0.0.1:5000>
+
+## 🧹 Linting & Code Quality
+
+Pre-commit hooks are enabled. If commits fail, run:
+
+```bash
+poetry run lint
+```
+
+or run individual
+
+```bash
+poetry run black .
+poetry run flake8 .
+poetry run mypy .
+poetry run ruff check .
+```
+
+## Build & Packaging
+
+## Build Package
+
+```bash
+poetry clean
+poetry build
+```
+
+Artifacts in `dist/`
+
+- sample-x.y.0-py3-none-any.whl
+- sample-x.y.0.tar.gz
+
+## Test Locally
+
+```bash
+python -m venv .venv-dist
+source .venv-dist/bin/activate
+# Windows
+.venv-dist\Scripts\activate
+```
+
+### Install package
+
+```bash
+pip install dist/*.whl
+pip install --upgrade dist/*.whl
+# Install extras:
+pip install sample
+```
+
+## CLI Shortcuts
+
+`sample dev` → Launch Streamlit UI
+
+`sample api` → Launch FastAPI
+
+current version will be printed on start of above commands.
+
+## License
+
+[MIT](./LICENSE)

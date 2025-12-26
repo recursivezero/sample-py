@@ -1,0 +1,4 @@
+# Shell scripts must use LF
+*.sh text eol=lf
+.githooks/* text eol=lf
+.git/hooks/* text eol=lf

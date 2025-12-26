@@ -1,0 +1,20 @@
+name: Validate GitHub Token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate GITHUB_TOKEN
+        env:
+          TOKEN: ${{ secrets.ISSUE_TOKEN }}
+        run: |
+          echo "Checking token validity..."
+          curl -s -o /tmp/result.json -w "%{http_code}" \
+            -H "Authorization: token $TOKEN" \
+            https://api.github.com/user | tee /tmp/status
+          echo
+          echo "Response:"
+          cat /tmp/result.json
