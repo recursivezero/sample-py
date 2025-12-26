@@ -1,0 +1,26 @@
+[server]
+port = 8085
+enableCORS = false
+enableXsrfProtection = false
+
+[client]
+showErrorDetails = "none"
+toolbarMode = "viewer"
+
+[ui]
+hideTopBar = false
+
+[theme]
+base = "light"
+primaryColor = "#4b9fffff"
+backgroundColor = "#FFFFFFFF"
+secondaryBackgroundColor = "#F0F2F6FF"
+textColor = "#262730FF"
+font = "sans serif"
+
+[theme.sidebar]
+primaryColor = "#4e6082ff"
+backgroundColor = "#771dedff"
+secondaryBackgroundColor = "#aabbccff"
+textColor = "#ffff"
+linkColor = "#0011bcff"
