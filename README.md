@@ -126,6 +126,31 @@ pip install sample
 
 current version will be printed on start of above commands.
 
+
+## Troubleshooting
+
+sometimes there might be chances that virtual environment get corrupted then delete the old virtual environment and start afresh.
+
+```sh
+poetry env info 
+# this will provide virtual environment name 
+poetry env remove <environment-full-name>
+```   
+
 ## License
 
 [MIT](./LICENSE)
+
+
+## References
+
+- [Python Downloads](https://www.python.org/downloads)
+- [Virtualenv Docs](https://docs.python.org/3/library/venv.html)
+- [Python Tips](https://www.airplane.dev/blog/12-useful-python-scripts-for-developers)
+- [Poetry Docs](https://python-poetry.org/docs/)
+- [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
+- [Useful Poetry commands](./docs//POETRY_COMMANDS.md)
+
+
+
+

@@ -57,7 +57,7 @@ so better use system service method as below
 
 ```sh
 [Unit]
-Description=ThreadZip App (via Poetry)
+Description=Sample App (via Poetry)
 After=network.target
 
 [Service]

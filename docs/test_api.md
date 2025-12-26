@@ -1,4 +1,4 @@
-# 🔪 Threadzip API Manual Test Guide
+# 🔪 API Manual Test Guide
 
 This guide contains all `curl` commands to test your FastAPI endpoints locally at `http://127.0.0.1:5000`.
 

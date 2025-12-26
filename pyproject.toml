@@ -1,6 +1,6 @@
 [project]
 name = "sample"
-version = "0.0.2"
+version = "0.0.3"
 description = "A package template for Recursive zero."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"

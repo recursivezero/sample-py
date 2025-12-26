@@ -40,5 +40,5 @@ Or manually
 
 ```bash
 poetry install
-poetry install --extras "ml cv ocr api"
+poetry install --extras "each block name with spaces"
 ```
