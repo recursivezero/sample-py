@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: "Suggest a feature for this project"
-title: "❇️ [TZP-25000X]: "
+title: "❇️: "
 labels: ["enhancement"]
 assignees: ["recursivezero"]
 ---

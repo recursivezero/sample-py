@@ -1,9 +1,9 @@
 name: Bug Report
 description: File a bug report to help us improve.
-title: "🐛 [TZX-25000X]: "
+title: "🐛: "
 labels: ["bug"]
 assignees:
-  - "xkeshav"
+  - "recursivezero"
 
 body:
   - type: textarea
@@ -71,7 +71,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/recursivezero/tz-script/blob/main/README.md).
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/recursivezero/sample-py/blob/main/README.md).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

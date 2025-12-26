@@ -194,6 +194,6 @@ Include Other Notes on how people can contribute
 <!-- Definitions -->
 
 [collective]: https://opencollective.com/recursivezero
-[readme]: https://github.com/recursivezero/tz-script/blob/main/README.md
-[support]: https://github.com/recursivezero/tz-script/blob/main/.github/SUPPORT.md
-[coc]: https://github.com/recursivezero/tz-script/blob/main/.github/CODE_OF_CONDUCT.md
+[readme]: https://github.com/recursivezero/sample-py/blob/main/README.md
+[support]: https://github.com/recursivezero/sample-py/blob/main/.github/SUPPORT.md
+[coc]: https://github.com/recursivezero/sample-py/blob/main/.github/CODE_OF_CONDUCT.md

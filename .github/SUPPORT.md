@@ -41,10 +41,10 @@ See [`contributing.md`][contributing] on how to contribute.
 <!-- Definitions -->
 
 [author]: https://xkeshav.com
-[coc]: https://github.com/recursivezero/tz-script/blob/main/.github/CODE_OF_CONDUCT.md
-[chat]: https://github.com/recursivezero/tz-script/discussions/new?category=general
-[discussion]: https://github.com/recursivezero/tz-script/discussions/new?category=q-a
-[contributing]: https://github.com/recursivezero/tz-script/blob/main/.github/CONTRIBUTING.md
+[coc]: https://github.com/recursivezero/sample-py/blob/main/.github/CODE_OF_CONDUCT.md
+[chat]: https://github.com/recursivezero/sample-py/discussions/new?category=general
+[discussion]: https://github.com/recursivezero/sample-py/discussions/new?category=q-a
+[contributing]: https://github.com/recursivezero/sample-py/blob/main/.github/CONTRIBUTING.md
 [xy]: https://meta.stackexchange.com/questions/66377/what-is-the-xy-problem/66378#66378
 [cs]: https://codesandbox.io
 [sb]: https://stackblitz.com
