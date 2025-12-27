@@ -5,7 +5,6 @@ from utils.constants import (
     DEFAULT_GREETING
 )
 from utils.helper import normalize_name
-from utils.faq import faq_page
 
 
 def greet():
