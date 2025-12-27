@@ -83,7 +83,7 @@ stefanzweifel
 streamlit
 Succesfully
 sucess
-Threadzip
+Sample
 tobytes
 torchvision
 txtl

@@ -7,7 +7,7 @@ from utils.helper import normalize_name
 
 app = FastAPI(
     title="sample API",
-    description="API endpoints for Threadzip with rate limiting",
+    description="API endpoints for Sample with rate limiting",
     version=__version__,
     redoc_url="/redoc",
     swagger_ui_parameters={
