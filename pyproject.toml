@@ -13,7 +13,6 @@ classifiers = [
 ]
 dependencies = [
   "fastapi (>=0.121.1,<0.122.0)",
-  "streamlit>=1.49.0",
   "python-box (>=7.3.2,<8.0.0)",
   "uvicorn (>=0.40.0,<0.41.0)",
 ]
