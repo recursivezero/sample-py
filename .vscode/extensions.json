@@ -12,7 +12,8 @@
     "aaron-bond.better-comments",
     "Heron.firefox-devtools-theme",
     "GitHub.github-vscode-theme",
-    "ms-python.python",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "tamasfe.even-better-toml",
+    "ms-python.vscode-python-envs"
   ]
 }

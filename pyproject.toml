@@ -1,12 +1,12 @@
 [project]
 name = "sample"
 version = "0.0.5"
-description = "A package template for Recursive zero."
+description = "A python template for fastapi and streamlit projects."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
-keywords = ["image", "fastapi", "streamlit"]
+keywords = ["python", "fastapi", "streamlit"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Image Recognition",

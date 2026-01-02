@@ -40,7 +40,7 @@ Ensure below files are configured (create if not exist) properly to run the proj
 
 ```bash
 poetry lock --no-cache --regenerate
-poetry install  --with dev
+poetry install  --all-extras --with dev
 ```
 
 Or manually
@@ -126,21 +126,34 @@ pip install sample
 
 current version will be printed on start of above commands.
 
+## Install GIT hooks
+
+these hooks will
+
+- Check for lint and audit for security before commit
+- Append branch name in commit message
+- Generate requirements.txt on checkout on new branch
+
+```bash
+# Install git hooks
+poetry run ./scripts/setup-hooks.sh
+```
+
+there is `.vscode/Python.code-profile` file; import this as a profile in vscode which include necessary extension for python development.
 
 ## Troubleshooting
 
 sometimes there might be chances that virtual environment get corrupted then delete the old virtual environment and start afresh.
 
 ```sh
-poetry env info 
-# this will provide virtual environment name 
+poetry env info
+# this will provide virtual environment name
 poetry env remove <environment-full-name>
-```   
+```
 
 ## License
 
 [MIT](./LICENSE)
-
 
 ## References
 
@@ -150,7 +163,3 @@ poetry env remove <environment-full-name>
 - [Poetry Docs](https://python-poetry.org/docs/)
 - [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
 - [Useful Poetry commands](./docs//POETRY_COMMANDS.md)
-
-
-
-

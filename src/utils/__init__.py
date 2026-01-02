@@ -1,4 +1,4 @@
-from db.db_connection import mongo_client
+from db.connection import mongo_client
 
 if mongo_client:
-  print("MongoDB connection successfull")
+  print("MongoDB connected successfully.")
