@@ -7,6 +7,20 @@ if [ "$DRY_RUN" = "1" ]; then
     exit 0
 fi
 
-git diff --name-only HEAD@{1} HEAD | grep -q "poetry.lock" || exit 0
-echo "[post-merge] regenerating requirements.txt"
+# Branch whitelist
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+ALLOWED_BRANCHES=("develop" "main" "release")
+
+if [[ ! " ${ALLOWED_BRANCHES[@]} " =~ " ${BRANCH} " ]]; then
+    echo "[hook] skipped: branch '$BRANCH' not in allowed list"
+    exit 0
+fi
+
+# Only regenerate if poetry.lock changed
+if ! git diff --name-only HEAD@{1} HEAD | grep -q "poetry.lock"; then
+    echo "[hook] skipped: poetry.lock unchanged"
+    exit 0
+fi
+
+echo "[hook] regenerating requirements.txt on branch '$BRANCH'"
 poetry export -f requirements.txt -o requirements.txt --without-hashes
