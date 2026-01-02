@@ -41,7 +41,7 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
       "pyproject.toml": "poetry.lock,ruff.toml,.pip-audit.toml",
-      ".gitignore": ".prettier*, .poetryignore, .editorconfig, .eslint*, .npm*, .markdown*, .flake8, .env*, mypy.ini",
+      ".gitignore": ".gitattributes, .poetryignore, .editorconfig, .eslint*, .npm*, .markdown*, .flake8, .env*, mypy.ini",
       "README.md": "*.md, requirements.txt,packages.txt",
       "LICENSE": "LICENSE-*"
     },
@@ -95,12 +95,14 @@
       "sideBar.border": "#6d4589"
     },
     "peacock.color": "#523467",
-    "cSpell.words": [],
+    "cSpell.words": [
+      "gitstash"
+    ],
     "files.autoSave": "onFocusChange",
     "editor.dragAndDrop": false,
     "editor.tabCompletion": "onlySnippets",
     "editor.formatOnSaveMode": "file",
-    "files.eol": "\r\n",
+    "files.eol": "\n",
     "files.readonlyExclude": {
       "dist/**": true
     },
@@ -134,7 +136,6 @@
       "diffEditor.ignoreTrimWhitespace": true
     },
     "files.readonlyInclude": {
-      ".githooks/**": true,
       ".venv/**": true
     },
     "workbench.editor.pinnedTabsOnSeparateRow": true,
@@ -145,6 +146,7 @@
       "./src"
     ],
     "files.exclude": {
+      ".git/**": true,
       ".poetry/**": true,
       "**/.git": false
     },
@@ -153,7 +155,7 @@
       "servers": {}
     },
     "chat.mcp.serverSampling": {
-      "sample-py.code-workspace: my-mcp-server-c37295de": {
+      "tz-script.code-workspace: my-mcp-server-c37295de": {
         "allowedModels": [
           "copilot/gpt-4.1",
           "copilot/claude-3.5-sonnet"
@@ -161,10 +163,6 @@
       }
     },
     "gitstash.explorer.display.fileSorting": "tree",
-    "folderStructure.ignorePatterns": [
-      "node_modules",
-      ".*",
-      "__pycache__"
-    ],
+    "files.insertFinalNewline": true,
   }
 }

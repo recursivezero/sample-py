@@ -1,120 +1,91 @@
+/* Light + Dark themes unchanged from your original */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --border: #e1e4e8;
+    --border-hover: #c1c8cd;
+    --summary-color: #24292e;
+    --text-color: #586069;
+  }
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2a2a2a;
+    --border: #3a3a3a;
+    --border-hover: #4a4a4a;
+    --summary-color: #e1e4e8;
+    --text-color: #764ba2;
+  }
+}
+
 .faq-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 900px;
   margin: 20px auto;
   padding: 20px;
   line-height: 1.6;
-}
 
-.faq-container summary {
-  color: #9b59b6 !important;
-  /* Purple */
-  font-weight: 600;
-  font-size: 1.125rem;
-  cursor: pointer;
-}
+  & summary {
+    color: var(--summary-color);
+    font-weight: 600;
+    font-size: 1.125rem;
+    cursor: pointer;
+  }
 
-/* Keep rest of your existing CSS structure */
-.faq-container h1 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  /* Keep rest of your existing CSS structure */
+  & h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-.faq-container details {
-  background: var(--faq-bg);
-  border-radius: 12px;
-  border: 1px solid var(--faq-border);
-  padding: 20px;
-  margin-bottom: 16px;
-  transition: all 0.3s ease;
-}
+  & details {
+    background: var(--faq-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
 
-
-.faq-container details:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(215, 81, 202, 0.12);
-  border-color: var(--faq-border-hover);
-}
-
-.faq-container p {
-  margin-top: 16px;
-  font-size: 1rem;
-  color: var(--faq-text-color);
-  line-height: 1.7;
-}
-
-/* Light + Dark themes unchanged from your original */
-    @media (prefers-color-scheme: light) {
-      .faq-container {
-        --faq-bg: #ffffff;
-        --faq-bg-open: #f8f9fa;
-        --faq-border: #e1e4e8;
-        --faq-border-hover: #c1c8cd;
-        --faq-border-open: #667eea;
-        --faq-summary-color: #24292e;
-        --faq-text-color: #586069;
-        --faq-icon-color: #667eea;
-      }
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(215, 81, 202, 0.12);
+      border-color: var(--border-hover);
     }
-  
-    /* Dark mode variables */
-    @media (prefers-color-scheme: dark) {
-      .faq-container {
-        --faq-bg-open: #2a2a2a;
-        --faq-border: #3a3a3a;
-        --faq-border-hover: #4a4a4a;
-        --faq-border-open: #764ba2;
-        --faq-summary-color: #e1e4e8;
-        --faq-icon-color: #764ba2;
-      }
+  }
+
+  & p {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.7;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .faq-container {
+    margin: 10px;
+    padding: 10px;
+
+    & h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
     }
-  
-    /* Streamlit theme detection fallback */
-    [data-theme="light"] .faq-container {
-      --faq-bg: #ffffff;
-      --faq-bg-open: #f8f9fa;
-      --faq-border: #e1e4e8;
-      --faq-border-hover: #c1c8cd;
-      --faq-border-open: #667eea;
-      --faq-summary-color: #24292e;
-      --faq-text-color: #060707;
-      --faq-icon-color: #667eea;
+
+    * summary {
+      font-size: 1rem;
     }
-  
-    [data-theme="dark"] .faq-container {
-      --faq-bg: #1e1e1e;
-      --faq-bg-open: #2a2a2a;
-      --faq-border: #3a3a3a;
-      --faq-border-hover: #4a4a4a;
-      --faq-border-open: #764ba2;
-      --faq-summary-color: #e1e4e8;
-      --faq-text-color: #c9d1d9;
-      --faq-icon-color: #764ba2;
+
+    & p {
+      font-size: 0.9375rem;
     }
-  
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .faq-container {
-        margin: 10px;
-        padding: 10px;
-      }
-  
-      .faq-container h1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-      }
-  
-      .faq-container summary {
-        font-size: 1rem;
-      }
-  
-      .faq-container p {
-        font-size: 0.9375rem;
-      }
-    }
+  }
+}
