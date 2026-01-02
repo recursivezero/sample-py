@@ -2,8 +2,7 @@
 
 All notable changes to this repository will be documented in this file.
 
-## [0.0.1]
+## [1.0.0]
 
 - Initial release.
-
-Following version changes are required to be documented.
+- Include boilerplate with streamlit and fast api
