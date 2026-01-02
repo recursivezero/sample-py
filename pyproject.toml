@@ -1,6 +1,6 @@
 [project]
 name = "sample"
-version = "0.0.5"
+version = "1.0.0"
 description = "A python template for fastapi and streamlit projects."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"
