@@ -4,8 +4,9 @@ from http.server import SimpleHTTPRequestHandler
 from socketserver import TCPServer
 import os
 
-__version__ = "0.1.0"
-PORT = 8000
+from utils.constants import PORT
+from . import __version__
+
 
 
 def main():
