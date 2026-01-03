@@ -9,7 +9,7 @@ import logging
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
-
+PORT = 8000
 # --- Asset paths ---
 PROJECT_ROOT = Path(__file__).parent.parent
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
