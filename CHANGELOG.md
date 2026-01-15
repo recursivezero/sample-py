@@ -5,4 +5,4 @@ All notable changes to this repository will be documented in this file.
 ## [1.0.0]
 
 - Initial release.
-- Include boilerplate with streamlit and fast api
+- Include boilerplate without streamlit and fast api

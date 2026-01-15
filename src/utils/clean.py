@@ -17,24 +17,19 @@ def clean():
     _remove_artifacts()
     print("Done ✨")
 
-
 def reset():
     print("Cleaning build artifacts...")
     _remove_artifacts()
 
-    if "VIRTUAL_ENV" in os.environ:
-        print("You are inside a Poetry env. Cannot delete active env.")
-        print("Run this instead:")
-        print("  deactivate && poetry run reset")
-        return
 
-    print("Removing virtualenv...")
-    subprocess.run(["poetry", "env", "remove", "--all"], check=False)
+    print("Removing current project virtualenv...")
+    subprocess.run(["poetry", "env", "remove", "python"], check=True)
 
     print("Reinstalling dependencies...")
     subprocess.run(["poetry", "install"], check=True)
 
     print("Environment fully reset ✨")
+
 
 
 def main():

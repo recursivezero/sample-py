@@ -17,6 +17,7 @@ dependencies = [
   "uvicorn (>=0.40.0,<0.41.0)",
   "pymongo (>=4.15.5,<5.0.0)",
   "python-dotenv (>=1.2.1,<2.0.0)",
+  "dotenv (>=0.9.9,<0.10.0)",
 ]
 
 
@@ -50,8 +51,8 @@ vulture = "^2.3"
 [tool.flake8]
 max_line_length = 190
 
-[tool.poetry.requires-plugins]
-poetry-plugin-export = "^1.9"
+#[tool.poetry.requires-plugins]
+#poetry-plugin-export = "^1.9"
 
 [tool.poetry-auto-export]
 output = "requirements.txt"

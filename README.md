@@ -1,6 +1,6 @@
-# Fabric Generator and Search Utility
+# Sample BoilerPlare
 
-A Streamlit template for Recursive Zero repository
+A Sample template for Recursive Zero repository
 
 ## Installation Guide
 
@@ -8,7 +8,6 @@ A Streamlit template for Recursive Zero repository
 
 - Python ≥ 3.11
 - Poetry ≥ 2.2.1
-- Streamlit ≥ 1.49.1
 
 ## Getting Started
 
@@ -50,7 +49,7 @@ poetry install
 
 ## How to Run
 
-## Run Streamlit App
+## Run Sample App
 
 ```bash
 poetry run sample dev
@@ -119,7 +118,7 @@ pip install sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Streamlit UI
+`sample dev` → Launch UI
 
 `sample api` → Launch FastAPI
 
