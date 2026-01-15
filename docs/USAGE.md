@@ -1,6 +1,6 @@
 # How to Run
 
-## Run Streamlit App
+## Run Sample app
 
 ```bash
 poetry run sample dev

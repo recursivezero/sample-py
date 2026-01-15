@@ -1,6 +1,6 @@
 # Fabric Generator and Search Utility
 
-A Streamlit template for Recursive Zero repository
+A Sample template for Recursive Zero repository
 
 ## Installation Guide
 
@@ -8,7 +8,6 @@ A Streamlit template for Recursive Zero repository
 
 - Python ≥ 3.11
 - Poetry ≥ 2.2.1
-- Streamlit ≥ 1.49.1
 
 ## Getting Started
 
@@ -34,7 +33,6 @@ Ensure below files are configured (create if not exist) properly to run the proj
 
 - `.env.local`,
 - `.env`, and
-- `.streamlit/secrets.toml`
 
 ## Install Dependencies
 
@@ -51,7 +49,7 @@ poetry install
 
 ## How to Run
 
-## Run Streamlit App
+## Run Sample App
 
 ```bash
 poetry run sample dev
@@ -120,7 +118,7 @@ pip install sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Streamlit UI
+`sample dev` → Launch Sample UI
 
 `sample api` → Launch FastAPI
 

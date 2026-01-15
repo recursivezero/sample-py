@@ -1,10 +1,9 @@
 # Cloud Deployment
 
-- Install python v 3.12, streamlit and poetry using pip
+- Install python v 3.12,poetry using pip
 
 ```sh
 sudo apt install python3-pip python3-venv
-pip install streamlit
 curl -sSL https://install.python-poetry.org | python3.12 -
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 # install additional required packages
@@ -27,7 +26,7 @@ poetry env info
 ```
 
 - copy sample repo in a folder
-- copy `.env` and `.streamlit/config.toml` to that folder
+- copy `.env` to that folder
 - go to folder and install package dependencies
 
 ```sh

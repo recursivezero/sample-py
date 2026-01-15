@@ -40,7 +40,7 @@ pip show sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Streamlit UI
+`sample dev` → Launch frontend
 
 `sample api` → Launch FastAPI
 

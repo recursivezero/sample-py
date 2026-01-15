@@ -1,6 +1,6 @@
 # Deployment Guide
 
-## Export Requirements for Streamlit
+## Export Requirements
 
 ```bash
 poetry export -f requirements.txt --without-hashes --output requirements.txt \

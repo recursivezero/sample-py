@@ -14,7 +14,7 @@ def cli(ctx, version):
 
 @cli.command()
 def dev():
-    """Run the Sample Streamlit app."""
+    """Run the Sample  app."""
     from sample.__main__ import main
 
     main()
