@@ -34,7 +34,6 @@ Ensure below files are configured (create if not exist) properly to run the proj
 
 - `.env.local`,
 - `.env`, and
-- `.streamlit/secrets.toml`
 
 ## Install Dependencies
 

@@ -1,12 +1,12 @@
 [project]
 name = "sample"
 version = "1.0.0"
-description = "A python template for fastapi and streamlit projects."
+description = "A python template for fastapi and mongo projects."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"
 readme = "README.md"
 requires-python = ">=3.10,<3.13"
-keywords = ["python", "fastapi", "streamlit"]
+keywords = ["python", "fastapi", "mongo", "template"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Image Recognition",
@@ -16,6 +16,7 @@ dependencies = [
   "python-box (>=7.3.2,<8.0.0)",
   "uvicorn (>=0.40.0,<0.41.0)",
   "pymongo (>=4.15.5,<5.0.0)",
+  "python-dotenv (>=1.2.1,<2.0.0)",
 ]
 
 
@@ -32,6 +33,8 @@ packages = [
 [project.scripts]
 sample = "sample.cli:cli"
 lint = "utils.lint:main"
+clean = "utils.clean:clean"
+reset = "utils.clean:reset"
 
 
 [tool.poetry.group.dev.dependencies]

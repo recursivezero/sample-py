@@ -26,7 +26,7 @@ pip install poetry>=1.5.0
 poetry config virtualenvs.path /your/desired/path
 ```
 
-Ensure `.env.local`, `.env`, and `.streamlit/secrets.toml` are configured with appropriate keys.
+Ensure `.env.local`, `.env` are configured with appropriate keys.
 
 ## Install Dependencies
 
