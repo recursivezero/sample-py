@@ -1,4 +1,3 @@
-import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -17,10 +16,10 @@ def clean():
     _remove_artifacts()
     print("Done ✨")
 
+
 def reset():
     print("Cleaning build artifacts...")
     _remove_artifacts()
-
 
     print("Removing current project virtualenv...")
     subprocess.run(["poetry", "env", "remove", "python"], check=True)
@@ -29,7 +28,6 @@ def reset():
     subprocess.run(["poetry", "install"], check=True)
 
     print("Environment fully reset ✨")
-
 
 
 def main():

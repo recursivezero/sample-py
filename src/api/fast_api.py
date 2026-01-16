@@ -1,9 +1,10 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-from . import __version__
-from utils.constants import DEFAULT_GREETING
+from utils.constants import DEFAULT_GREETING, GREET_PREFIX
 from utils.helper import normalize_name
+
+from . import __version__
 
 app = FastAPI(
     title="sample API",
@@ -17,6 +18,12 @@ app = FastAPI(
         "layout": "BaseLayout",  # Clean layout
         "syntaxHighlight": {"theme": "obsidian"},  # Dark theme
     },
+)
+
+
+greet_router = APIRouter(
+    prefix=GREET_PREFIX,
+    tags=["Greeting"],
 )
 
 
@@ -80,7 +87,7 @@ def health_check():
     return {"status": "ok"}
 
 
-@app.post("/greet", response_model=GreetResponse)
+@greet_router.post("/greet", response_model=GreetResponse)
 def greet_user(payload: GreetRequest):
     clean_name = normalize_name(payload.name)
 
@@ -88,6 +95,9 @@ def greet_user(payload: GreetRequest):
         raise HTTPException(status_code=400, detail="Invalid name provided")
 
     return {"message": f"{DEFAULT_GREETING}, {clean_name} 👋"}
+
+
+app.include_router(greet_router)
 
 
 def start():

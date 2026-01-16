@@ -1,6 +1,7 @@
+import logging
 import os
 from pathlib import Path
-import logging
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -10,10 +11,12 @@ APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
 PORT = 8000
+GREET_PREFIX = "/api/v1"
 # --- Asset paths ---
 PROJECT_ROOT = Path(__file__).parent.parent
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
+
 
 def safe_get(env_key: str) -> str:
     value = os.getenv(env_key)
@@ -23,6 +26,7 @@ def safe_get(env_key: str) -> str:
 
     logging.info(f"Loaded config '{env_key}' from [env]")
     return value
+
 
 MONGODB_URI = safe_get("MONGODB_URI")
 DATABASE_NAME = safe_get("DATABASE_NAME")

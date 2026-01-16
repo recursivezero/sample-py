@@ -3,23 +3,76 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Greeting Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample Boilerplate - Recursive Zero</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <div class="logo-container"></div>
+      <h1>Sample Boilerplate</h1>
+      <p>A sample template for Recursive Zero repository</p>
+    </header>
 
-  <header>
-    <img src="../src/assets/images/logo.png" width="80">
-    <h1>Welcome</h1>
-  </header>
+    <div class="grid">
+      <section>
+        <h2>🚀 How to Run</h2>
+        <ol>
+          <li>Open this file directly in your browser.</li>
+          <li>No server, no build, no dependencies required.</li>
+        </ol>
+      </section>
 
-  <p>This is a plain HTML greeting page.</p>
+      <section>
+        <h2>📋 Prerequisites</h2>
+        <ul>
+          <li><span class="badge">Python</span> ≥ 3.11</li>
+          <li><span class="badge">Poetry</span> ≥ 2.2.1</li>
+        </ul>
+      </section>
+    </div>
 
-  <nav>
-    <a href="faq.html">FAQ</a>
-  </nav>
+    <div class="grid">
+      <section>
+        <h2>📦 Installation</h2>
+        <pre><code><span class="command-line">pip install poetry>=2.2.1</span>
+<span class="command-line">poetry install</span></code></pre>
+      </section>
 
+      <section>
+        <h2>▶️ Run Sample App</h2>
+        <pre><code><span class="command-line">poetry run sample dev</span></code></pre>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section>
+        <h2>🌐 Run FastAPI Server</h2>
+        <pre><code><span class="command-line">poetry run sample api</span></code></pre>
+      </section>
+
+      <section>
+        <h2>✨ Linting</h2>
+        <pre><code><span class="command-line">poetry run lint</span></code></pre>
+      </section>
+    </div>
+    <div class="grid">
+      <section>
+        <h2>❓ FAQ</h2>
+        <p>
+          Common questions, troubleshooting tips, and usage notes are available in the FAQ page.
+        </p>
+        <a class="button" href="faq.html">Open FAQ</a>
+      </section>
+    </div>
+
+
+    <footer>
+      <p>📄 License: MIT | Built with ❤️ for Recursive Zero</p>
+    </footer>
+  </div>
 </body>
 
 </html>

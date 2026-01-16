@@ -1,4 +1,4 @@
-# Sample BoilerPlare
+# Sample BoilerPlate
 
 A Sample template for Recursive Zero repository
 
