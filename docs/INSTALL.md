@@ -4,7 +4,6 @@
 
 - Python ≥ 3.11
 - Poetry ≥ 2.2.1
-- Streamlit ≥ 1.49.1
 
 ## Getting Started
 
