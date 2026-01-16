@@ -34,8 +34,6 @@ packages = [
 [project.scripts]
 sample = "sample.cli:cli"
 lint = "utils.lint:main"
-clean = "utils.clean:clean"
-reset = "utils.clean:reset"
 
 
 [tool.poetry.group.dev.dependencies]
