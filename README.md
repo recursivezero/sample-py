@@ -149,6 +149,26 @@ poetry env info
 poetry env remove <environment-full-name>
 ```
 
+## Reset Environment
+
+Use the reset script to clean artifacts and recreate the project virtual environment:
+
+```bash
+./scripts/reset.sh
+```
+
+Note:
+
+On first clone, the script is already executable (permission is tracked in git).
+
+If you see Permission denied, run once:
+
+```bash
+chmod +x scripts/reset.sh
+```
+
+This will completely reset the environment.
+
 ## License
 
 [MIT](./LICENSE)

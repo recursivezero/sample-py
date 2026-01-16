@@ -27,19 +27,3 @@ def api():
     from api.fast_api import start
 
     start()
-
-
-@cli.command()
-def clean():
-    """Run the Sample Streamlit app."""
-    from utils.clean import main
-
-    main()
-
-
-@cli.command()
-def reset():
-    """Run the Sample Streamlit app."""
-    from utils.clean import reset
-
-    reset()
