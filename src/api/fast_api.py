@@ -1,7 +1,7 @@
 from fastapi import APIRouter, FastAPI, HTTPException, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
-from utils.constants import DEFAULT_GREETING, GREET_PREFIX
+from utils.constants import API_PREFIX, DEFAULT_GREETING
 from utils.helper import normalize_name
 
 from . import __version__
@@ -20,10 +20,9 @@ app = FastAPI(
     },
 )
 
-
-greet_router = APIRouter(
-    prefix=GREET_PREFIX,
-    tags=["Greeting"],
+api_v1 = APIRouter(
+    prefix=API_PREFIX,
+    tags=["V1"],
 )
 
 
@@ -35,12 +34,12 @@ class GreetResponse(BaseModel):
     message: str
 
 
-@app.get("/version")
+@app.get("/version", tags=["Version"])
 def version():
     return {"version": app.version}
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse, tags=["Home"])
 async def read_root(request: Request):
     return """
     <html>
@@ -82,12 +81,22 @@ async def read_root(request: Request):
     """
 
 
-@app.get("/health")
+@app.get("/health", tags=["Help"])
 def health_check():
     return {"status": "ok"}
 
 
-@greet_router.post("/greet", response_model=GreetResponse)
+@api_v1.get("/help", tags=["Help"])
+def get_help():
+    return JSONResponse(
+        status_code=200,
+        content={
+            "message": "Welcome to the Sample BoilerPlate API! Visit /docs for API documentation."
+        },
+    )
+
+
+@api_v1.post("/greet", response_model=GreetResponse)
 def greet_user(payload: GreetRequest):
     clean_name = normalize_name(payload.name)
 
@@ -97,7 +106,7 @@ def greet_user(payload: GreetRequest):
     return {"message": f"{DEFAULT_GREETING}, {clean_name} 👋"}
 
 
-app.include_router(greet_router)
+app.include_router(api_v1)
 
 
 def start():

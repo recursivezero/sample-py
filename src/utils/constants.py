@@ -11,7 +11,7 @@ APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
 PORT = 8000
-GREET_PREFIX = "/api/v1"
+API_PREFIX = "/api/v1"
 # --- Asset paths ---
 PROJECT_ROOT = Path(__file__).parent.parent
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
