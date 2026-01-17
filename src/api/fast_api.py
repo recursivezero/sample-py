@@ -2,7 +2,6 @@ from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from starlette.exceptions import HTTPException as StarletteHTTPException
-
 from utils.constants import API_PREFIX, GREETING
 from utils.helper import normalize_name
 
@@ -126,6 +125,12 @@ async def http_exception_handler(request: Request, exc: StarletteHTTPException):
         status_code=exc.status_code,
         content={"error": exc.detail},
     )
+
+
+# suppress chrome log
+@app.get("/.well-known/appspecific/com.chrome.devtools.json")
+async def chrome_devtools_probe():
+    return JSONResponse({})
 
 
 app.include_router(api_v1)

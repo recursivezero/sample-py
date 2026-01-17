@@ -1,20 +1,29 @@
 import io
 from datetime import datetime
-from typing import Optional
 
-from pymongo import MongoClient
-from pymongo.database import Database
 from utils.constants import MONGO_CONFIG
 
-_mongo_client: Optional[MongoClient] = None
-_db: Optional[Database] = None
+_mongo_client = None
+_db = None
 
 
-def connect_db() -> Database:
+def connect_db():
+    """
+    Connect to MongoDB and return the Database object.
+    Requires pymongo to be installed via the 'mongo' extra.
+    """
     global _mongo_client, _db
 
     if _db is not None:
         return _db
+
+    try:
+        from pymongo import MongoClient
+    except ImportError as e:
+        raise RuntimeError(
+            "Mongo support not installed. "
+            "Install with: pip install sample[mongo] or poetry install --extras 'mongo'"
+        ) from e
 
     try:
         uri = MONGO_CONFIG["MONGODB_URI"]
@@ -22,7 +31,7 @@ def connect_db() -> Database:
         print("Mongo URI =", repr(uri))
 
         _mongo_client = MongoClient(uri, serverSelectionTimeoutMS=3000)
-        # This forces an actual connection attempt
+        # Force an actual connection attempt
         _mongo_client.admin.command("ping")
         _db = _mongo_client[name]
         print("MongoDB connected successfully.")
@@ -35,7 +44,7 @@ def connect_db() -> Database:
         raise RuntimeError(f"MongoDB Connection Error: {e}")
 
 
-def save_to_mongodb(data: dict, collection):
+def save_to_mongodb(data, collection):
     try:
         data["created_at"] = datetime.now()
         result = collection.insert_one(data)

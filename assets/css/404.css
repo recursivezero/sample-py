@@ -1,0 +1,5 @@
+.container_404 {
+  height: fit-content;
+  display: grid;
+  place-content: center;
+}

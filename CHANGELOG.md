@@ -7,8 +7,9 @@ All notable changes to this repository will be documented in this file.
 - Initial release.
 - Include boilerplate without streamlit and fast api
 
-## [1.1.0] Sat,17 Jan 2026
+## [1.2.0] Sat,17 Jan 2026
 
-- Updated UI.
+- Updated UI, using common header and footer.
 - Add clean script.
 - Add exception handling on API.
+- handle 404 on UI

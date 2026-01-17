@@ -1,33 +1,39 @@
-<link rel="stylesheet" href="faq.css">
+{% extends "base.html" %} {% block title %}FAQs{% endblock %} {% block extra_css %}
+<link rel="stylesheet" href="/static/css/faq.css" />
+{% endblock %} {% block content %}
 
-<div id="general-faq" class="faq-container">
+<section class="faq-container">
   <h1>Frequently Asked Questions</h1>
   <details>
     <summary>What is sample?</summary>
-    <p>This is a sample template with minimal setup of poetry with fast api. go through README and start developing.
-    </p>
+    <p>This is a sample template with minimal setup of poetry with fast api. go through README and start developing.</p>
   </details>
 
   <details>
     <summary>What are the main packages and libraries?</summary>
     <ul>
-      <li>we are using html for front end and Fast API for backend. </li>
-      <li>we also have versioning system, if you change version in `pyproject.toml`, it will automatically reflected in
-        api</li>
+      <li>we are using vanilla html for front end and Fast API for backend.</li>
+      <li>
+        we also have versioning system, if you change version in <strong>pyproject.toml</strong>, it will automatically
+        reflected in api
+      </li>
       <li>using `Box` for centralized messaged which later can be changed using i18n support.</li>
     </ul>
   </details>
 
   <details>
     <summary>What are method to run?</summary>
-    <p> run `poetry run sample dev` for html UI.</p>
-    <p> run `poetry run sample api` and /version` is one endpoint.</p>
-    <p> run `poetry run lint` to lint the code.</p>
+    <p>run <code>poetry run sample dev</code> for UI.</p>
+    <p>run <code>poetry run sample api</code> and <code>/version</code> is one endpoint.</p>
+    <p>run <code>poetry run lint</code> to lint the code.</p>
   </details>
 
   <details>
     <summary>How it is different from others?</summary>
-    <p>This is a useful to start the development with pre-defined template and best practices and define folder
-      structure.</p>
+    <p>
+      This is a useful to start the development with pre-defined template and best practices and define folder
+      structure.
+    </p>
   </details>
-</div>
+</section>
+{% endblock %}

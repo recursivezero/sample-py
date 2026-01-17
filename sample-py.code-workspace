@@ -48,12 +48,8 @@
     "git.enableSmartCommit": true,
     "git.autofetch": true,
     "explorer.excludeGitIgnore": false,
-    "git.branchPrefix": "feature/TZP-2500",
-    "git.branchRandomName.enable": true,
-    "git.branchRandomName.dictionary": [
-      "animals",
-      "numbers"
-    ],
+    "git.branchPrefix": "feature/SAM-26000X",
+    "git.branchRandomName.enable": false,
     "search.showLineNumbers": true,
     "workbench.editorAssociations": {
       "*.log": "default"
@@ -117,9 +113,6 @@
     },
     "peacock.affectSideBarBorder": true,
     "prettier.quoteProps": "consistent",
-    "prettier.documentSelectors": [
-      "**/*.astro"
-    ],
     "git.branchProtection": [
       "develop",
       "main"
@@ -150,11 +143,15 @@
       ".poetry/**": true,
       "**/.git": false
     },
-    "mcp": {
-      "inputs": [],
-      "servers": {}
-    },
     "gitstash.explorer.display.fileSorting": "tree",
     "files.insertFinalNewline": true,
+    "folderStructure.ignorePatterns": [
+      "node_modules",
+      ".*",
+      "__pycache__"
+    ],
+    "html.format.indentInnerHtml": true,
+    "html.format.indentHandlebars": true,
+    "editor.formatOnPaste": true
   }
 }

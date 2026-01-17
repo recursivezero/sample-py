@@ -21,8 +21,7 @@
 }
 
 .faq-container {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 900px;
+  width: 100%;
   margin: 20px auto;
   padding: 20px;
   line-height: 1.6;
@@ -58,6 +57,10 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(215, 81, 202, 0.12);
       border-color: var(--border-hover);
+    }
+
+    &:open {
+      border: 2px dashed grey;
     }
   }
 
