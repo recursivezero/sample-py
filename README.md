@@ -1,4 +1,4 @@
-# Fabric Generator and Search Utility
+# Sample BoilerPlate
 
 A Sample template for Recursive Zero repository
 
@@ -6,7 +6,7 @@ A Sample template for Recursive Zero repository
 
 ## Prerequisites
 
-- Python ≥ 3.11
+- Python ≥ 3.11FAQ
 - Poetry ≥ 2.2.1
 
 ## Getting Started
@@ -118,7 +118,7 @@ pip install sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Sample UI
+`sample dev` → Launch UI
 
 `sample api` → Launch FastAPI
 
@@ -148,6 +148,26 @@ poetry env info
 # this will provide virtual environment name
 poetry env remove <environment-full-name>
 ```
+
+## Reset Environment
+
+Use the reset script to clean artifacts and recreate the project virtual environment:
+
+```bash
+./scripts/reset.sh
+```
+
+Note:
+
+On first clone, the script is already executable (permission is tracked in git).
+
+If you see Permission denied, run once:
+
+```bash
+chmod +x scripts/reset.sh
+```
+
+This will completely reset the environment.
 
 ## License
 

@@ -1,17 +1,23 @@
 import logging
-from pathlib import Path
-from http.server import SimpleHTTPRequestHandler
-from socketserver import TCPServer
 import os
+from http.server import SimpleHTTPRequestHandler
+from pathlib import Path
+from socketserver import TCPServer
 
+from db.connection import connect_db
 from utils.constants import PORT
-from . import __version__
 
+from . import __version__
 
 
 def main():
     print("🏷️ Sample version:", __version__)
     logging.info("Starting static HTML server...")
+    db = connect_db()
+
+    # Future app bootstrapping goes here
+    print(f"Using database: {db.name}")
+    print("App is ready.")
 
     sample_dir = Path(__file__).resolve().parent.parent
 
