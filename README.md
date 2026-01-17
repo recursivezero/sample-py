@@ -1,6 +1,6 @@
-# Fabric Generator and Search Utility
+# Sample BoilerPlate
 
-A Streamlit template for Recursive Zero repository
+A boilerplate for python project with poetry and fastapi
 
 ## Installation Guide
 
@@ -8,7 +8,6 @@ A Streamlit template for Recursive Zero repository
 
 - Python ≥ 3.11
 - Poetry ≥ 2.2.1
-- Streamlit ≥ 1.49.1
 
 ## Getting Started
 
@@ -34,7 +33,6 @@ Ensure below files are configured (create if not exist) properly to run the proj
 
 - `.env.local`,
 - `.env`, and
-- `.streamlit/secrets.toml`
 
 ## Install Dependencies
 
@@ -51,7 +49,7 @@ poetry install
 
 ## How to Run
 
-## Run Streamlit App
+## Run Sample App
 
 ```bash
 poetry run sample dev
@@ -120,9 +118,11 @@ pip install sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Streamlit UI
+`sample dev` → Launch UI
 
 `sample api` → Launch FastAPI
+
+`sample --version` -> check current package version
 
 current version will be printed on start of above commands.
 
@@ -150,6 +150,26 @@ poetry env info
 # this will provide virtual environment name
 poetry env remove <environment-full-name>
 ```
+
+## Reset Environment
+
+Use the reset script to clean artifacts and recreate the project virtual environment:
+
+```bash
+./scripts/reset.sh
+```
+
+Note:
+
+On first clone, the script is already executable (permission is tracked in git).
+
+If you see Permission denied, run once:
+
+```bash
+chmod +x scripts/reset.sh
+```
+
+This will completely reset the environment.
 
 ## License
 

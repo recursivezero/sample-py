@@ -1,86 +1,73 @@
-# sample/__main__.py
+import logging
+from contextlib import asynccontextmanager
+from pathlib import Path
+
+from db.connection import connect_db
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+from utils.constants import PORT
 
 from . import __version__
-import sys
-import logging
-import subprocess
-from pathlib import Path
-import click
-
-logging.basicConfig(level=logging.INFO)
 
 
-@click.group(invoke_without_command=True)
-@click.option("--version", is_flag=True, help="Show the Sample version and exit.")
-@click.pass_context
-def cli(ctx, version):
-    """Sample command-line tools."""
-    if version:
-        click.echo(__version__)
-        ctx.exit()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup logic
+    print("🏷️ Sample version:", __version__)
+    logging.info("Starting FastAPI server...")
+    try:
+        db = connect_db()
+        print(f"Using database: {db.name}")
+    except Exception as e:
+        logging.error(f"⚠️ Database connection failed: {e}")
+    print("App is ready.")
+
+    yield  # <-- control passes to request handling
+
+    # Shutdown logic
+    logging.info("Shutting down FastAPI server...")
+    # If you want to close DB connections, do it here
 
 
-@cli.command()
-def dev():
-    """Run the Sample Streamlit app."""
-    main()
+# Create FastAPI app with lifespan handler
+app = FastAPI(lifespan=lifespan)
+
+# Mount assets and pages
+app.mount("/static", StaticFiles(directory="assets"), name="static")
+
+# Point Jinja2 to your templates directory
+templates = Jinja2Templates(
+    directory=str(Path(__file__).resolve().parents[2] / "templates")
+)
 
 
-@cli.command()
-def api():
-    """Run the Sample FastAPI backend."""
-    from api.fast_api import start
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    """Serve the main index.html at root."""
+    return templates.TemplateResponse("index.html", {"request": request})
 
-    start()
+
+@app.get("/faq", response_class=HTMLResponse)
+async def faq(request: Request):
+    return templates.TemplateResponse("faq.html", {"request": request})
+
+
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get("/{full_path:path}", response_class=HTMLResponse)
+async def catch_all(request: Request, full_path: str):
+    return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
 
 
 def main():
-    """
-    Entrypoint for the Streamlit 'dev' app.
-    """
-    print("🏷️ Sample version:", __version__)
-    logging.info("Starting sample dev script...")
+    """Entry point for CLI dev command."""
+    import uvicorn
 
-    # Paths
-    Sample_dir = Path(__file__).resolve().parent
-    dev_root = Sample_dir.parent  # src/
-    wheel_root = Sample_dir.parent  # same in wheel
-
-    # Add correct root to sys.path
-    if "site-packages" in str(Sample_dir):  # running from wheel
-        if str(wheel_root) not in sys.path:
-            sys.path.append(str(wheel_root))
-            logging.info(f"Added wheel root to sys.path: {wheel_root}")
-    else:  # dev mode
-        if str(dev_root) not in sys.path:
-            sys.path.append(str(dev_root))
-            logging.info(f"Added dev src root to sys.path: {dev_root}")
-
-    # Locate streamlit_app.py
-    streamlit_app_path = Sample_dir / "streamlit_app.py"
-    logging.info(f"Streamlit app path: {streamlit_app_path}")
-
-    if not streamlit_app_path.exists():
-        logging.error(f"Streamlit app not found at: {streamlit_app_path}")
-        return
-
-    # Run Streamlit app
-    python_path = sys.executable
-    logging.info(f"Using Python executable: {python_path}")
-
-    subprocess.run(
-        [
-            python_path,
-            "-m",
-            "streamlit",
-            "run",
-            str(streamlit_app_path.resolve()),
-            "--server.port",
-            "8501",
-        ],
-        check=True,
-    )
+    uvicorn.run("sample.__main__:app", host="127.0.0.1", port=PORT, reload=True)
 
 
 if __name__ == "__main__":
-    cli()
+    main()

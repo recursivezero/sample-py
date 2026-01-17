@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Sample - Recursive Zero{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+  </head>
+
+  <body class="container">
+    <!-- Common header -->
+    <header>
+      <div class="logo-container"></div>
+      <h1>Sample Boilerplate</h1>
+      <p>A sample template for Recursive Zero repository</p>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/faq">FAQ</a>
+      </nav>
+    </header>
+    <!-- Page-specific content -->
+    <main>{% block content %}{% endblock %}</main>
+
+    <!-- Common footer -->
+    <footer>
+      <p>&copy; 2026 | Built with ❤️ by RecursiveZero</p>
+    </footer>
+  </body>
+
+</html>

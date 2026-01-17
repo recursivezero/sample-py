@@ -25,6 +25,26 @@ poetry install
 
 Note: run `poetry install` command before running `poetry shell`
 
+## Reset Environment
+
+Use the reset script to clean artifacts and recreate the project virtual environment:
+
+```bash
+./scripts/reset.sh
+```
+
+Note:
+
+On first clone, the script is already executable (permission is tracked in git).
+
+If you see Permission denied, run once:
+
+```bash
+chmod +x scripts/reset.sh
+```
+
+This will completely reset the environment.
+
 ## delete virtual environment if it is on custom location
 
 1. To check the custom location run `poetry env info --path` also you can check all config using

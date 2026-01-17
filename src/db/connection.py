@@ -1,35 +1,50 @@
-from datetime import datetime
-from typing import Optional
-from pymongo import MongoClient
-from pymongo.database import Database
-from pymongo.collection import Collection
 import io
+from datetime import datetime
+
 from utils.constants import MONGO_CONFIG
 
-mongo_client: Optional[MongoClient]
-db: Optional[Database]
-collection: Optional[Collection]
-fabric_collection: Optional[Collection]
-processing_times_collection: Optional[Collection]
-
-# Initialize MongoDB connections with error handling
-try:
-    mongo_client = MongoClient(MONGO_CONFIG["MONGODB_URI"])
-    db = mongo_client[MONGO_CONFIG["DATABASE_NAME"]]
-except KeyError as e:
-    print(f"MongoDB Configuration Error: Missing key {e}")
-    mongo_client = None
-    db = None
-    collection = None
-
-except Exception as e:
-    print(f"MongoDB Connection Error: {e}")
-    mongo_client = None
-    db = None
+_mongo_client = None
+_db = None
 
 
-def save_to_mongodb(data: dict, collection):
-    """Insert processed JSON data into MongoDB"""
+def connect_db():
+    """
+    Connect to MongoDB and return the Database object.
+    Requires pymongo to be installed via the 'mongo' extra.
+    """
+    global _mongo_client, _db
+
+    if _db is not None:
+        return _db
+
+    try:
+        from pymongo import MongoClient
+    except ImportError as e:
+        raise RuntimeError(
+            "Mongo support not installed. "
+            "Install with: pip install sample[mongo] or poetry install --extras 'mongo'"
+        ) from e
+
+    try:
+        uri = MONGO_CONFIG["MONGODB_URI"]
+        name = MONGO_CONFIG["DATABASE_NAME"]
+        print("Mongo URI =", repr(uri))
+
+        _mongo_client = MongoClient(uri, serverSelectionTimeoutMS=3000)
+        # Force an actual connection attempt
+        _mongo_client.admin.command("ping")
+        _db = _mongo_client[name]
+        print("MongoDB connected successfully.")
+        return _db
+
+    except KeyError as e:
+        raise RuntimeError(f"MongoDB Configuration Error: Missing key {e}")
+
+    except Exception as e:
+        raise RuntimeError(f"MongoDB Connection Error: {e}")
+
+
+def save_to_mongodb(data, collection):
     try:
         data["created_at"] = datetime.now()
         result = collection.insert_one(data)

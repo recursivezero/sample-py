@@ -4,7 +4,6 @@
 
 - Python ≥ 3.11
 - Poetry ≥ 2.2.1
-- Streamlit ≥ 1.49.1
 
 ## Getting Started
 
@@ -26,7 +25,7 @@ pip install poetry>=1.5.0
 poetry config virtualenvs.path /your/desired/path
 ```
 
-Ensure `.env.local`, `.env`, and `.streamlit/secrets.toml` are configured with appropriate keys.
+Ensure `.env.local`, `.env` are configured with appropriate keys.
 
 ## Install Dependencies
 

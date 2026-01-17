@@ -1,64 +1,39 @@
+import logging
 import os
 from pathlib import Path
-from typing import Any
-import streamlit as st
-import logging
 
+from dotenv import load_dotenv
 
+load_dotenv()
+# These should be in environment variables or .env file.
+DEFAULT_PORT = 8005
+DEFAULT_API_PREFIX = "/api/v1"
+DEFAULT_MONGODB_URI = (
+    "mongodb://127.0.0.1:27017/?retryWrites=true&w=majority&appName=Sample"
+)
+DEFAULT_DATABASE_NAME = "sample_db"
 
-APP_TITLE = ":blue[Greeting Feature]"
-DEFAULT_GREETING = "Hello"
-FAQ_TITLE = "FAQs"
+GREETING = "Hello"
 
 # --- Asset paths ---
 PROJECT_ROOT = Path(__file__).parent.parent
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
 
-def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
-    """
-    Safely retrieve a configuration value from:
-    1. Streamlit secrets (if secrets.toml exists)
-    2. Environment variable
-    3. Default fallback
 
-    Logs the source used for each config value.
-    """
-    value = default
-    source = "default"
-    secrets_file = Path(".streamlit/secrets.toml")
+def safe_get(env_key: str, default) -> str:
+    value = os.getenv(env_key, default)
+    if not value:
+        raise RuntimeError(f"Missing required environment variable: {env_key}")
 
-    # Only try accessing secrets if the file exists
-    if secrets_file.exists():
-        try:
-            secrets_dict: dict[str, Any] = dict(st.secrets)  # Convert to plain dict
-            val = secrets_dict
-
-            for key in secret_path.split("."):
-                val = (
-                    val.get(key, {}) if isinstance(val, dict) else getattr(val, key, {})
-                )
-            if val and val != {}:
-                value = str(val)
-                source = "secrets"
-        except Exception as e:
-            logging.debug(f"Could not retrieve secret '{secret_path}': {e}")
-
-    # If secrets not used, fallback to env
-    if source != "secrets" and env_key:
-        env_val = os.getenv(env_key)
-        if env_val:
-            value = env_val
-            source = "env"
-
-    logging.info(
-        f"Loaded config for '{env_key or secret_path}' from [{source}]",
-        extra={"color": "yellow"},
-    )
+    logging.info(f"Loaded config '{env_key}' from [env]")
     return value
 
-MONGODB_URI = safe_get("mongodb.MONGODB_URI", "MONGODB_URI")
-DATABASE_NAME = safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME")
+
+MONGODB_URI = safe_get("MONGODB_URI", DEFAULT_MONGODB_URI)
+DATABASE_NAME = safe_get("DATABASE_NAME", DEFAULT_DATABASE_NAME)
+API_PREFIX = safe_get("API_PREFIX", DEFAULT_API_PREFIX)
+PORT = int(safe_get("PORT", DEFAULT_PORT))
 
 print("MongoDB URI:", MONGODB_URI)
 print("Database Name:", DATABASE_NAME)

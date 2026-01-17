@@ -76,7 +76,7 @@ poetry run ruff check
 poetry show --tree
 ```
 
-3. **Run the Streamlit application:**
+3. **Run the Sample app:**
 
 ```sh
 poetry run sample dev
