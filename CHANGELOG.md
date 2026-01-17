@@ -11,3 +11,4 @@ All notable changes to this repository will be documented in this file.
 
 - Updated UI.
 - Add clean script.
+- Add exception handling on API.
