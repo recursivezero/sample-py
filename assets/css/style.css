@@ -9,8 +9,9 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
   line-height: 1.6;
-  min-height: 100vh;
-  position: relative;
+  height: calc(100vh - 3rem);
+  /* subtract margin */
+  margin-top: 2rem;
   overflow-x: hidden;
 }
 
@@ -39,16 +40,12 @@ body::before {
   }
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  position: relative;
-  z-index: 1;
+body.container {
+  margin: 1rem;
 }
 
 header {
-  background: rgba(255, 255, 255, 0.95);
+  background: white;
   border-radius: 20px;
   padding: 3rem 2rem;
   text-align: center;
@@ -57,6 +54,7 @@ header {
   backdrop-filter: blur(10px);
   border: 2px solid rgba(255, 255, 255, 0.5);
   animation: slideDown 0.6s ease-out;
+  height: 25rem;
 }
 
 @keyframes slideDown {
@@ -81,23 +79,10 @@ header {
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
+  img {
+    width: 180px;
+    aspect-ratio: 1;
   }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-.logo-container::before {
-  content: "🚀";
-  font-size: 60px;
 }
 
 h1 {
@@ -233,9 +218,8 @@ footer {
   border: 2px solid rgba(255, 255, 255, 0.5);
   margin-top: 3rem;
   animation: fadeInUp 0.6s ease-out 0.7s backwards;
-  position: absolute;
-  bottom: 2rem;
   width: 100%;
+  max-height: 6rem;
 }
 
 footer p {

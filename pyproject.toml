@@ -1,7 +1,7 @@
 [project]
 name = "sample"
-version = "1.2.0"
-description = "A python template for fastapi and mongo projects."
+version = "2.0.0"
+description = "A python starterkit for fastapi and mongo projects."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"
 readme = "README.md"
@@ -9,7 +9,7 @@ requires-python = ">=3.10,<3.13"
 keywords = ["python", "fastapi", "mongo", "template"]
 classifiers = [
   "Programming Language :: Python :: 3",
-  "Topic :: Scientific/Engineering :: Image Recognition",
+  "Topic :: Boilerplate :: Poetry Flask",
 ]
 
 [tool.poetry.dependencies]

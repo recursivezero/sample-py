@@ -34,7 +34,7 @@
     "explorer.confirmDelete": false,
     "editor.snippetSuggestions": "top",
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "file-icons",
+    "workbench.iconTheme": "a-file-icon-vscode",
     "git.confirmSync": false,
     "workbench.startupEditor": "none",
     "window.autoDetectColorScheme": true,
