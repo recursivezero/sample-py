@@ -1,6 +1,7 @@
 from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from utils.constants import API_PREFIX, GREETING
 from utils.helper import normalize_name
@@ -105,6 +106,26 @@ def greet_user(payload: GreetRequest):
         raise HTTPException(status_code=400, detail="Invalid name provided")
 
     return {"message": f"{GREETING}, {clean_name} 👋"}
+
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    if exc.status_code == 404:
+        endpoint = request.url.path
+
+        return JSONResponse(
+            status_code=404,
+            content={
+                "error": f"Endpoint '{endpoint}' does not exist, use /docs to see available endpoints.",
+                "status": 404,
+            },
+        )
+
+    # fallback for other HTTP errors
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"error": exc.detail},
+    )
 
 
 app.include_router(api_v1)

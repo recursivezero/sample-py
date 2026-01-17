@@ -1,6 +1,6 @@
 [project]
 name = "sample"
-version = "1.1.0"
+version = "1.1.2"
 description = "A python template for fastapi and mongo projects."
 authors = [{ name = "sample", email = "recursivezero@outlook.com" }]
 license = "MIT"
@@ -27,6 +27,8 @@ packages = [
   { include = "features", from = "src" },
   { include = "utils", from = "src" },
   { include = "api", from = "src" },
+  { include = "db", from = "src" },
+  { include = "templates", from = "." },
   { include = "assets/images/logo.png", from = "src" },
 ]
 
