@@ -6,7 +6,7 @@ A Sample template for Recursive Zero repository
 
 ## Prerequisites
 
-- Python ≥ 3.11
+- Python ≥ 3.11FAQ
 - Poetry ≥ 2.2.1
 
 ## Getting Started
