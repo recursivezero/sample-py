@@ -1,12 +1,12 @@
 # Sample BoilerPlate
 
-A Sample template for Recursive Zero repository
+A boilerplate for python project with poetry and fastapi
 
 ## Installation Guide
 
 ## Prerequisites
 
-- Python ≥ 3.11FAQ
+- Python ≥ 3.11
 - Poetry ≥ 2.2.1
 
 ## Getting Started
@@ -121,6 +121,8 @@ pip install sample
 `sample dev` → Launch UI
 
 `sample api` → Launch FastAPI
+
+`sample --version` -> check current package version
 
 current version will be printed on start of above commands.
 

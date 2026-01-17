@@ -4,7 +4,7 @@
 
 ### Prerequisites
 
-- Python v3.12.7+
+- Python v3.11.7+
 - Windows 10/11
 
 1. **Navigate to the project root:**
