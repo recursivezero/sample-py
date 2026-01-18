@@ -1,9 +1,12 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.responses import HTMLResponse
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from . import __version__
 from utils.constants import DEFAULT_GREETING
 from utils.helper import normalize_name
+import streamlit as st
 
 app = FastAPI(
     title="sample API",
@@ -19,6 +22,44 @@ app = FastAPI(
     },
 )
 
+def apply_common_styles():
+    st.markdown("""
+        <style>
+        .reportview-container {
+            background: #f0f2f6;
+        }
+        footer {visibility: hidden;}
+        .main-header {
+            font-size: 2.5rem;
+            color: #4B4B4B;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<div class="main-header">Sample Python App</div>', unsafe_allow_html=True)
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exc: RequestValidationError):
+    return JSONResponse(
+        status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
+        content = {
+            "status": "error",
+            "message": "Invalid data provided",
+            "details": exc.errors(),
+        },
+    )
+@app.exception_handler(Exception)
+async def general_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content = {
+            "status": "error",
+            "message": "An internal server error occurred",
+            "details": str(exc),
+        },
+    )
 
 class GreetRequest(BaseModel):
     name: str
@@ -98,4 +139,7 @@ def start():
 
 
 if __name__ == "__main__":
+    apply_common_styles()
+    st.write("Welcome to the app!")
     start()
+    
