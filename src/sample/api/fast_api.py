@@ -2,8 +2,8 @@ from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from . import __version__
-from utils.constants import DEFAULT_GREETING
-from utils.helper import normalize_name
+from sample.utils.constants import DEFAULT_GREETING
+from sample.utils.helper import normalize_name
 
 app = FastAPI(
     title="sample API",
@@ -94,7 +94,7 @@ def start():
     import uvicorn
 
     print(f"🧵 {__version__}\n")
-    uvicorn.run("api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
+    uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
 
 
 if __name__ == "__main__":

@@ -8,10 +8,10 @@ if package_root not in sys.path:
     sys.path.append(package_root)
 
 # --- Imports ---
-from utils.constants import COMPANY_LOGO, FAQ_TITLE
-from utils.faq import faq_page
-from utils.load_messages import get_msg
-from features.greeting import greet
+from sample.utils.constants import COMPANY_LOGO, FAQ_TITLE
+from sample.utils.faq import faq_page
+from sample.utils.load_messages import get_msg
+from sample.features.greeting import greet
 
 MSG = get_msg("MAIN_APP")
 

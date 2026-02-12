@@ -23,16 +23,13 @@ dependencies = [
 [tool.poetry]
 packages = [
   { include = "sample", from = "src" },
-  { include = "features", from = "src" },
-  { include = "utils", from = "src" },
-  { include = "api", from = "src" },
   { include = "assets/images/logo.png", from = "src" },
 ]
 
 
 [project.scripts]
 sample = "sample.cli:cli"
-lint = "utils.lint:main"
+lint = "sample.utils.lint:main"
 
 
 [tool.poetry.group.dev.dependencies]

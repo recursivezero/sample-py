@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from pymongo.database import Database
 from pymongo.collection import Collection
 import io
-from utils.constants import MONGO_CONFIG
+from sample.utils.constants import MONGO_CONFIG
 
 mongo_client: Optional[MongoClient]
 db: Optional[Database]

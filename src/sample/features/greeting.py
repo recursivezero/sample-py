@@ -1,10 +1,10 @@
 import streamlit as st
 
-from utils.constants import (
+from sample.utils.constants import (
     APP_TITLE,
     DEFAULT_GREETING
 )
-from utils.helper import normalize_name
+from sample.utils.helper import normalize_name
 
 
 def greet():

@@ -11,7 +11,7 @@ DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
 
 # --- Asset paths ---
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parents[2]
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
 
