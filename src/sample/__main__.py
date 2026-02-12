@@ -1,10 +1,13 @@
 # sample/__main__.py
 
-from . import __version__
-import sys
 import logging
 import subprocess
+import sys
 from pathlib import Path
+
+from sample.db.connection import connect_db
+
+from . import __version__
 
 
 def main():
@@ -12,6 +15,7 @@ def main():
     Entrypoint for the Streamlit 'dev' app.
     """
     print("🏷️ Sample version:", __version__)
+    connect_db()
     logging.info("Starting sample dev script...")
 
     # Paths
