@@ -1,9 +1,9 @@
+import logging
 import os
 from pathlib import Path
 from typing import Any
-import streamlit as st
-import logging
 
+import streamlit as st
 
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
@@ -60,9 +60,6 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
 
 MONGODB_URI = safe_get("mongodb.MONGODB_URI", "MONGODB_URI")
 DATABASE_NAME = safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME")
-
-print("MongoDB URI:", MONGODB_URI)
-print("Database Name:", DATABASE_NAME)
 
 MONGO_CONFIG = {
     "MONGODB_URI": MONGODB_URI,
