@@ -5,7 +5,6 @@ import streamlit as st
 import logging
 
 
-
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
@@ -14,6 +13,7 @@ FAQ_TITLE = "FAQs"
 PROJECT_ROOT = Path(__file__).parents[2]
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
+
 
 def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
     """
@@ -56,6 +56,7 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
         extra={"color": "yellow"},
     )
     return value
+
 
 MONGODB_URI = safe_get("mongodb.MONGODB_URI", "MONGODB_URI")
 DATABASE_NAME = safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME")

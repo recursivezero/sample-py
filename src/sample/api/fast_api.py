@@ -1,9 +1,16 @@
+import sys
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-from . import __version__
+
 from sample.utils.constants import DEFAULT_GREETING
 from sample.utils.helper import normalize_name
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from . import __version__
 
 app = FastAPI(
     title="sample API",

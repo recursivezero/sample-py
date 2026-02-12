@@ -1,9 +1,6 @@
 import streamlit as st
 
-from sample.utils.constants import (
-    APP_TITLE,
-    DEFAULT_GREETING
-)
+from sample.utils.constants import APP_TITLE, DEFAULT_GREETING
 from sample.utils.helper import normalize_name
 
 
