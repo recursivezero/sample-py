@@ -4,7 +4,7 @@ from pathlib import Path
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
-
+from sample.db.connection import connect_db
 from sample.utils.constants import DEFAULT_GREETING
 from sample.utils.helper import normalize_name
 
@@ -101,6 +101,7 @@ def start():
     import uvicorn
 
     print(f"🧵 {__version__}\n")
+    connect_db()
     uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
 
 
