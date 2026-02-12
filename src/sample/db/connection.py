@@ -28,7 +28,6 @@ def connect_db():
     try:
         uri = MONGO_CONFIG["MONGODB_URI"]
         name = MONGO_CONFIG["DATABASE_NAME"]
-        print("Mongo URI =", repr(uri))
 
         _mongo_client = MongoClient(uri, serverSelectionTimeoutMS=3000)
         # Force an actual connection attempt

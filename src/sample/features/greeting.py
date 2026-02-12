@@ -1,4 +1,5 @@
 import streamlit as st
+from sample.db.connection import connect_db
 from sample.utils.constants import APP_TITLE, DEFAULT_GREETING
 from sample.utils.helper import normalize_name
 
@@ -7,6 +8,7 @@ def greet():
     st.header(APP_TITLE)
 
     name = st.text_input("Enter your name")
+    connect_db()
 
     clean_name = normalize_name(name)
 

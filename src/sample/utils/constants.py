@@ -1,13 +1,17 @@
 import logging
 import os
 from pathlib import Path
-from typing import Any
 
-import streamlit as st
+from sample.utils.config import load_env
 
+load_env()
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
+logging.basicConfig(
+    level=logging.INFO,  # or DEBUG
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
 
 # --- Asset paths ---
 PROJECT_ROOT = Path(__file__).parents[2]
@@ -26,23 +30,6 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
     """
     value = default
     source = "default"
-    secrets_file = Path(".streamlit/secrets.toml")
-
-    # Only try accessing secrets if the file exists
-    if secrets_file.exists():
-        try:
-            secrets_dict: dict[str, Any] = dict(st.secrets)  # Convert to plain dict
-            val = secrets_dict
-
-            for key in secret_path.split("."):
-                val = (
-                    val.get(key, {}) if isinstance(val, dict) else getattr(val, key, {})
-                )
-            if val and val != {}:
-                value = str(val)
-                source = "secrets"
-        except Exception as e:
-            logging.debug(f"Could not retrieve secret '{secret_path}': {e}")
 
     # If secrets not used, fallback to env
     if source != "secrets" and env_key:
@@ -58,10 +45,16 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
     return value
 
 
-MONGODB_URI = safe_get("mongodb.MONGODB_URI", "MONGODB_URI")
-DATABASE_NAME = safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME")
+def get_mongo_config():
+    return {
+        "MONGODB_URI": safe_get("mongodb.MONGODB_URI", "MONGODB_URI"),
+        "DATABASE_NAME": safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME"),
+    }
 
-MONGO_CONFIG = {
-    "MONGODB_URI": MONGODB_URI,
-    "DATABASE_NAME": DATABASE_NAME,
-}
+
+MONGO_CONFIG = get_mongo_config()
+# === Environment Selection ===
+ENVIRONMENT = safe_get("env.ENVIRONMENT", "ENVIRONMENT", "development").lower()
+logging.info(f"Environment: {ENVIRONMENT}", extra={"color": "yellow"})
+logging.info(f"Project root: {PROJECT_ROOT}", extra={"color": "yellow"})
+print("PID:", os.getpid())
