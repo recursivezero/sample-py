@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from sample.db.connection import connect_db
@@ -26,7 +26,7 @@ app = FastAPI(
     },
 )
 
-
+greet_router = APIRouter(prefix="/api/v1", tags=["V1"])
 class GreetRequest(BaseModel):
     name: str
 
@@ -87,7 +87,7 @@ def health_check():
     return {"status": "ok"}
 
 
-@app.post("/greet", response_model=GreetResponse)
+@greet_router.post("/greet", response_model=GreetResponse)
 def greet_user(payload: GreetRequest):
     clean_name = normalize_name(payload.name)
 
@@ -95,6 +95,8 @@ def greet_user(payload: GreetRequest):
         raise HTTPException(status_code=400, detail="Invalid name provided")
 
     return {"message": f"{DEFAULT_GREETING}, {clean_name} 👋"}
+
+app.include_router(greet_router)
 
 
 def start():
