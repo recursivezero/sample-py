@@ -27,6 +27,8 @@ app = FastAPI(
 )
 
 greet_router = APIRouter(prefix="/api/v1", tags=["V1"])
+
+
 class GreetRequest(BaseModel):
     name: str
 
@@ -95,6 +97,7 @@ def greet_user(payload: GreetRequest):
         raise HTTPException(status_code=400, detail="Invalid name provided")
 
     return {"message": f"{DEFAULT_GREETING}, {clean_name} 👋"}
+
 
 app.include_router(greet_router)
 
