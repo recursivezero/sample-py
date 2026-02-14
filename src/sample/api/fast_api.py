@@ -37,12 +37,12 @@ class GreetResponse(BaseModel):
     message: str
 
 
-@app.get("/version")
+@app.get("/version",tags=["Meta"])
 def version():
     return {"version": app.version}
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse,tags=["Meta"])
 async def read_root(request: Request):
     return """
     <html>
@@ -84,7 +84,7 @@ async def read_root(request: Request):
     """
 
 
-@app.get("/health")
+@app.get("/health",tags=["Meta"])
 def health_check():
     return {"status": "ok"}
 
