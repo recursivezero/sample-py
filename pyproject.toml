@@ -17,22 +17,23 @@ dependencies = [
   "python-box (>=7.3.2,<8.0.0)",
   "uvicorn (>=0.40.0,<0.41.0)",
   "pymongo (>=4.15.5,<5.0.0)",
+  "bs4 (>=0.0.2,<0.0.3)",
+  "dotenv (>=0.9.9,<0.10.0)",
+  "pydantic (>=2.12.5,<3.0.0)",
+  "click (>=8.3.1,<9.0.0)",
 ]
 
 
 [tool.poetry]
 packages = [
   { include = "sample", from = "src" },
-  { include = "features", from = "src" },
-  { include = "utils", from = "src" },
-  { include = "api", from = "src" },
   { include = "assets/images/logo.png", from = "src" },
 ]
 
 
 [project.scripts]
 sample = "sample.cli:cli"
-lint = "utils.lint:main"
+lint = "sample.utils.lint:main"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -44,6 +45,7 @@ pipreqs = "0.5.0"
 ruff = "0.5.3"
 twine = "^6.2.0"
 vulture = "^2.3"
+deptry = "^0.24.0"
 
 [tool.flake8]
 max_line_length = 190
@@ -62,3 +64,6 @@ ignore = []
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.deptry]
+known_first_party = ["sample"]

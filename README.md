@@ -32,9 +32,8 @@ poetry config virtualenvs.path /your/desired/path
 
 Ensure below files are configured (create if not exist) properly to run the project;
 
-- `.env.local`,
-- `.env`, and
-- `.streamlit/secrets.toml`
+- `.env.development`
+- `.env.production`
 
 ## Install Dependencies
 
@@ -50,6 +49,17 @@ poetry install
 ```
 
 ## How to Run
+
+## Configure ENVIRONMENT
+
+setup `.env.development` and `.env.production` in project root
+
+```bash
+  # for local configuration(linux)
+  export ENV=development
+  # for production(linux)
+  export ENV=production
+```
 
 ## Run Streamlit App
 

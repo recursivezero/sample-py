@@ -1,9 +1,16 @@
-from fastapi import FastAPI, HTTPException, Request
+import sys
+from pathlib import Path
+
+from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
+from sample.db.connection import connect_db
+from sample.utils.constants import DEFAULT_GREETING
+from sample.utils.helper import normalize_name
+
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
 from . import __version__
-from utils.constants import DEFAULT_GREETING
-from utils.helper import normalize_name
 
 app = FastAPI(
     title="sample API",
@@ -19,6 +26,8 @@ app = FastAPI(
     },
 )
 
+greet_router = APIRouter(prefix="/api/v1", tags=["V1"])
+
 
 class GreetRequest(BaseModel):
     name: str
@@ -28,12 +37,12 @@ class GreetResponse(BaseModel):
     message: str
 
 
-@app.get("/version")
+@app.get("/version",tags=["Meta"])
 def version():
     return {"version": app.version}
 
 
-@app.get("/", response_class=HTMLResponse)
+@app.get("/", response_class=HTMLResponse,tags=["Meta"])
 async def read_root(request: Request):
     return """
     <html>
@@ -75,12 +84,12 @@ async def read_root(request: Request):
     """
 
 
-@app.get("/health")
+@app.get("/health",tags=["Meta"])
 def health_check():
     return {"status": "ok"}
 
 
-@app.post("/greet", response_model=GreetResponse)
+@greet_router.post("/greet", response_model=GreetResponse)
 def greet_user(payload: GreetRequest):
     clean_name = normalize_name(payload.name)
 
@@ -90,11 +99,15 @@ def greet_user(payload: GreetRequest):
     return {"message": f"{DEFAULT_GREETING}, {clean_name} 👋"}
 
 
+app.include_router(greet_router)
+
+
 def start():
     import uvicorn
 
     print(f"🧵 {__version__}\n")
-    uvicorn.run("api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
+    connect_db()
+    uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
 
 
 if __name__ == "__main__":
