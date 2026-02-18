@@ -1,28 +1,35 @@
 import click
+
 from . import __version__
 
 
-@click.group(invoke_without_command=True)
+@click.group(
+    invoke_without_command=True,
+    help="""
+Sample command-line tools.
+
+To configure MongoDB support, install with:
+
+    pip install sample[mongo]
+""",
+)
 @click.option("--version", is_flag=True, help="Show the Sample version and exit.")
 @click.pass_context
 def cli(ctx, version):
-    """Sample command-line tools."""
     if version:
         click.echo(__version__)
         ctx.exit()
 
 
-@cli.command()
+@cli.command(help="Run the Sample Streamlit app.")
 def dev():
-    """Run the Sample Streamlit app."""
     from sample.__main__ import main
 
     main()
 
 
-@cli.command()
+@cli.command(help="Run the Sample FastAPI backend.")
 def api():
-    """Run the Sample FastAPI backend."""
     from sample.api.fast_api import start
 
     start()
