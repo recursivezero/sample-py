@@ -8,7 +8,14 @@ def greet():
     st.header(APP_TITLE)
 
     name = st.text_input("Enter your name")
-    connect_db()
+
+    # Try connecting, but don't crash if it fails
+    try:
+        connect_db()
+    except Exception:
+        st.warning(
+            "⚠️ Could not connect to the database. Please check database configuration."
+        )
 
     clean_name = normalize_name(name)
 

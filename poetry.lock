@@ -732,9 +732,10 @@ tomli = {version = ">=2.0.1", markers = "python_full_version < \"3.11.0\""}
 name = "dnspython"
 version = "2.8.0"
 description = "DNS toolkit"
-optional = false
+optional = true
 python-versions = ">=3.10"
 groups = ["main"]
+markers = "extra == \"mongo\""
 files = [
     {file = "dnspython-2.8.0-py3-none-any.whl", hash = "sha256:01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af"},
     {file = "dnspython-2.8.0.tar.gz", hash = "sha256:181d3c6996452cb1189c4046c61599b84a5a86e099562ffde77d26984ff26d0f"},
@@ -2804,9 +2805,10 @@ windows-terminal = ["colorama (>=0.4.6)"]
 name = "pymongo"
 version = "4.15.5"
 description = "PyMongo - the Official MongoDB Python driver"
-optional = false
+optional = true
 python-versions = ">=3.9"
 groups = ["main"]
+markers = "extra == \"mongo\""
 files = [
     {file = "pymongo-4.15.5-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:a01a2054d50b50c121c720739a2216d855c48726b0002894de9b991cdd68a2a5"},
     {file = "pymongo-4.15.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:5e57968139d81367117ed7b75d921445a575d4d7e61536f5e860475df92ac0a9"},
@@ -3897,7 +3899,10 @@ enabler = ["pytest-enabler (>=2.2)"]
 test = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more_itertools", "pytest (>=6,!=8.1.*)", "pytest-ignore-flaky"]
 type = ["pytest-mypy"]
 
+[extras]
+mongo = ["pymongo"]
+
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<3.13"
-content-hash = "a84161e61d7038911ac4ec9ff6673c66f3ad6f6fd9da3dbf134dd99cabbf456e"
+content-hash = "130bbfbfb0199343bbef654d8dc4d5fef367c57625ce9cb9ef30fa1b82efd12f"

@@ -37,12 +37,12 @@ class GreetResponse(BaseModel):
     message: str
 
 
-@app.get("/version",tags=["Meta"])
+@app.get("/version", tags=["Meta"])
 def version():
     return {"version": app.version}
 
 
-@app.get("/", response_class=HTMLResponse,tags=["Meta"])
+@app.get("/", response_class=HTMLResponse, tags=["Meta"])
 async def read_root(request: Request):
     return """
     <html>
@@ -84,7 +84,7 @@ async def read_root(request: Request):
     """
 
 
-@app.get("/health",tags=["Meta"])
+@app.get("/health", tags=["Meta"])
 def health_check():
     return {"status": "ok"}
 
@@ -106,7 +106,12 @@ def start():
     import uvicorn
 
     print(f"🧵 {__version__}\n")
-    connect_db()
+    try:
+        connect_db()
+    except Exception:
+        print(
+            "⚠️ Could not connect to the database.Please check database configuration."
+        )
     uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
 
 
