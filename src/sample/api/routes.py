@@ -1,10 +1,17 @@
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, FastAPI, HTTPException, Request
 from pydantic import BaseModel
-from sample.utils.constants import API_PREFIX, GREETING
+from sample.utils.constants import API_PREFIX, GREETING, PORT
 from sample.utils.helper import normalize_name
 from starlette.responses import HTMLResponse, JSONResponse
+from sample import __version__
 
-api_router = APIRouter(prefix=API_PREFIX, tags=["V1"])
+app = FastAPI(
+    title="Sample API",
+    version=__version__,
+)
+
+api_router = APIRouter()
+greet_router = APIRouter(prefix=API_PREFIX, tags=["V1"])
 
 
 class GreetRequest(BaseModel):
@@ -20,7 +27,7 @@ def health_check():
     return {"status": "ok"}
 
 
-@api_router.post("/greet", response_model=GreetResponse)
+@greet_router.post("/greet", response_model=GreetResponse)
 def greet_user(payload: GreetRequest):
     clean_name = normalize_name(payload.name)
 
@@ -35,7 +42,7 @@ def version():
     return {"version": api_router.version}
 
 
-@api_router.get("/index", response_class=HTMLResponse, tags=["Home"])
+@api_router.get("/", response_class=HTMLResponse, tags=["Home"])
 async def read_root(request: Request):
     return """
     <html>
@@ -85,3 +92,13 @@ def get_help():
             "message": "Welcome to the Sample BoilerPlate API! Visit /docs for API documentation."
         },
     )
+
+
+app.include_router(api_router)
+app.include_router(greet_router)
+
+
+def start():
+    import uvicorn
+
+    uvicorn.run("sample.api.routes:app", host="127.0.0.1", port=PORT, reload=True)

@@ -5,8 +5,8 @@ from pathlib import Path
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from sample import __version__
-from sample.api.routes import api_router
+
+from sample.api.routes import greet_router
 from sample.api.web_page import web_router
 from sample.db.connection import connect_db
 from sample.utils.constants import PORT
@@ -14,7 +14,6 @@ from sample.utils.constants import PORT
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    print("🏷️ Sample version:", __version__)
     logging.info("Starting FastAPI server...")
     try:
         db = connect_db()
@@ -29,7 +28,6 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Sample API",
-    version=__version__,
     lifespan=lifespan,
 )
 
@@ -43,7 +41,7 @@ templates = Jinja2Templates(
 
 
 app.include_router(web_router)
-app.include_router(api_router)
+app.include_router(greet_router)
 
 
 def start():
