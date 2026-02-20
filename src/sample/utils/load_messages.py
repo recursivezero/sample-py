@@ -1,9 +1,9 @@
 # utils/get_message.py
-from box import Box
 import importlib
 
+from box import Box
 
-# auto-collect static  and text blocks from utils.static
+# auto-collect static  and text blocks from sample.utils.static
 _static_module = importlib.import_module("utils.templates")
 _TEMPLATE_MAP = {}
 for name, val in vars(_static_module).items():

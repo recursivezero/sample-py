@@ -2,12 +2,12 @@ import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from db.connection import connect_db
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from utils.constants import PORT
+from sample.db.connection import connect_db
+from sample.utils.constants import PORT
 
 from . import __version__
 

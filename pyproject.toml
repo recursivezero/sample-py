@@ -28,19 +28,14 @@ mongo = ["pymongo"]
 [tool.poetry]
 packages = [
   { include = "sample", from = "src" },
-  { include = "features", from = "src" },
-  { include = "utils", from = "src" },
-  { include = "api", from = "src" },
-  { include = "db", from = "src" },
-  { include = "templates", from = "." },
   { include = "assets", from = "." },
 ]
-
+include = [{ path = "templates/**/*", format = ["sdist", "wheel"] }]
 exclude = ["src/**/__pycache__", "tests", "docs", "*.log"]
 
 [project.scripts]
 sample = "sample.cli:cli"
-lint = "utils.lint:main"
+lint = "sample.utils.lint:main"
 
 
 [tool.poetry.group.dev.dependencies]

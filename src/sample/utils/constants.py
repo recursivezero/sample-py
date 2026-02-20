@@ -2,9 +2,9 @@ import logging
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
+from sample.utils.config import load_env
 
-load_dotenv()
+load_env()
 # These should be in environment variables or .env file.
 DEFAULT_PORT = 8005
 DEFAULT_API_PREFIX = "/api/v1"
@@ -30,15 +30,19 @@ def safe_get(env_key: str, default) -> str:
     return value
 
 
-MONGODB_URI = safe_get("MONGODB_URI", DEFAULT_MONGODB_URI)
-DATABASE_NAME = safe_get("DATABASE_NAME", DEFAULT_DATABASE_NAME)
 API_PREFIX = safe_get("API_PREFIX", DEFAULT_API_PREFIX)
 PORT = int(safe_get("PORT", DEFAULT_PORT))
 
-print("MongoDB URI:", MONGODB_URI)
-print("Database Name:", DATABASE_NAME)
 
-MONGO_CONFIG = {
-    "MONGODB_URI": MONGODB_URI,
-    "DATABASE_NAME": DATABASE_NAME,
-}
+def get_mongo_config():
+    return {
+        "MONGODB_URI": safe_get("MONGODB_URI", DEFAULT_MONGODB_URI),
+        "DATABASE_NAME": safe_get("DATABASE_NAME", DEFAULT_DATABASE_NAME),
+    }
+
+
+MONGO_CONFIG = get_mongo_config()
+# === Environment Selection ===
+ENVIRONMENT = safe_get("ENVIRONMENT", "development").lower()
+logging.info(f"Environment: {ENVIRONMENT}", extra={"color": "yellow"})
+logging.info(f"Project root: {PROJECT_ROOT}", extra={"color": "yellow"})

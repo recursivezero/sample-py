@@ -24,6 +24,6 @@ def dev():
 @cli.command()
 def api():
     """Run the Sample FastAPI backend."""
-    from api.fast_api import start
+    from sample.api.fast_api import start
 
     start()

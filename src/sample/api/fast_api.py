@@ -1,9 +1,12 @@
+import logging
+
 from fastapi import APIRouter, FastAPI, HTTPException, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
+from sample.db.connection import connect_db
+from sample.utils.constants import API_PREFIX, GREETING
+from sample.utils.helper import normalize_name
 from starlette.exceptions import HTTPException as StarletteHTTPException
-from utils.constants import API_PREFIX, GREETING
-from utils.helper import normalize_name
 
 from . import __version__
 
@@ -139,8 +142,15 @@ app.include_router(api_v1)
 def start():
     import uvicorn
 
+    try:
+        _ = connect_db()
+    except Exception:
+        logging.warning(
+            "⚠️ Could not connect to the database. Please check database configuration."
+        )
+
     print(f"🧵 {__version__}\n")
-    uvicorn.run("api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
+    uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
 
 
 if __name__ == "__main__":
