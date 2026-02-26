@@ -32,11 +32,65 @@
   </details>
 </div>
 <div id="technical-faq" class="faq-container">
+  <h1>Technical FAQ</h1>
+
   <details>
     <summary>Which Python version is supported?</summary>
     <p>
-      Python ≥ 3.11 is required. Using lower versions may cause dependency resolution or typing issues.
-      Verify using <code>python --version</code>.
+      Python ≥ 3.11 is required. Verify using:
+    </p>
+    <pre><code>python --version</code></pre>
+  </details>
+
+  <details>
+    <summary>How do I install dependencies?</summary>
+    <p>
+      Use the Makefile command:
+    </p>
+    <pre><code>make install</code></pre>
+    <p>
+      This runs <code>poetry install</code> internally.
+    </p>
+  </details>
+
+  <details>
+    <summary>How do I run the Streamlit app?</summary>
+    <pre><code>make dev</code></pre>
+    <p>
+      This executes <code>poetry run sample dev</code>.
+    </p>
+  </details>
+
+  <details>
+    <summary>How do I run the FastAPI server?</summary>
+    <pre><code>make api</code></pre>
+    <p>
+      This executes <code>poetry run sample api</code>.
+    </p>
+  </details>
+
+  <details>
+    <summary>How do I run linting and type checks?</summary>
+    <pre><code>make lint</code></pre>
+    <p>
+      This runs ruff, black (check mode), and mypy.
+    </p>
+  </details>
+
+  <details>
+    <summary>How do I auto-format the code?</summary>
+    <pre><code>make format</code></pre>
+    <p>
+      This runs black and ruff with auto-fix enabled.
+    </p>
+  </details>
+
+
+  <details>
+    <summary>How do I clean cache and build artifacts?</summary>
+    <pre><code>make clean</code></pre>
+    <p>
+      This removes __pycache__, mypy cache, pytest cache, and build artifacts.
     </p>
   </details>
 
@@ -44,31 +98,15 @@
     <summary>Where is the virtual environment created?</summary>
     <p>
       Poetry manages the virtual environment automatically.
-      Run <code>poetry env info</code> to check the active environment.
-      If virtualenvs.path is configured, it will be created in that directory.
+      To inspect:
     </p>
-  </details>
-
-  <details>
-    <summary>How do I add a new dependency?</summary>
-    <p>
-      Use Poetry only.
-    </p>
-    <pre><code>poetry add package-name</code></pre>
-    <p>
-      For dev dependencies:
-    </p>
-    <pre><code>poetry add --group dev package-name</code></pre>
-    <p>
-      Do not manually edit <code>pyproject.toml</code>.
-    </p>
+    <pre><code>poetry env info</code></pre>
   </details>
 
   <details>
     <summary>When should I regenerate poetry.lock?</summary>
     <p>
       Only when adding or upgrading dependencies.
-      Use:
     </p>
     <pre><code>poetry lock --no-cache --regenerate</code></pre>
     <p>
@@ -77,60 +115,9 @@
   </details>
 
   <details>
-    <summary>Why are environment variables not loading?</summary>
-    <p>
-      Ensure the <code>ENV</code> variable is set correctly:
-    </p>
-    <pre><code>export ENV=development</code></pre>
-    <p>
-      or
-    </p>
-    <pre><code>export ENV=production</code></pre>
-    <p>
-      Also confirm that corresponding <code>.env.*</code> file exists in the project root.
-    </p>
-  </details>
-
-  <details>
-    <summary>Why is Streamlit not reflecting changes?</summary>
-    <p>
-      Restart the Streamlit process. If caching issues occur, clear local cache or restart the shell.
-    </p>
-  </details>
-
-  <details>
-    <summary>Why is my commit failing?</summary>
-    <p>
-      Pre-commit hooks enforce linting, formatting, and type checks.
-      Fix issues by running:
-    </p>
-    <pre><code>poetry run lint</code></pre>
-  </details>
-
-  <details>
-    <summary>How do I fix a corrupted virtual environment?</summary>
-    <p>
-      Remove and recreate the environment:
-    </p>
-    <pre><code>poetry env info
-poetry env remove &lt;env-name&gt;
-poetry install</code></pre>
-  </details>
-
-  <details>
-    <summary>How do I test the built package locally?</summary>
-    <p>
-      Build the package:
-    </p>
-    <pre><code>poetry build</code></pre>
-    <p>
-      Create a clean virtual environment and install the wheel file from <code>dist/</code>.
-    </p>
-  </details>
-  <details>
     <summary>What if pymongo is not found?</summary>
     <p>
-      MongoDB support is installed as an optional extra dependency.
+      MongoDB support is an optional extra dependency.
       Install using:
     </p>
     <pre><code>pip install sample[mongo]</code></pre>
@@ -138,15 +125,6 @@ poetry install</code></pre>
       If using Poetry:
     </p>
     <pre><code>poetry install --extras "mongo"</code></pre>
-  </details>
-
-  <details>
-    <summary>What is the expected folder structure?</summary>
-    <p>
-      All source code must reside inside the <code>src/</code> directory.
-      Business logic should not be written directly in UI or API entry files.
-      Maintain separation between API, UI, services, and utilities.
-    </p>
   </details>
 
   <details>

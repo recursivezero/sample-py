@@ -64,7 +64,10 @@ setup `.env.development` and `.env.production` in project root
 ## Run Streamlit App
 
 ```bash
+make dev
+#or
 poetry run sample dev
+
 ```
 
 Access: <http://localhost:8501>
@@ -72,9 +75,9 @@ Access: <http://localhost:8501>
 ## Run FastAPI Server
 
 ```bash
+make api
+#OR
 poetry run sample api
-# OR
-python src/api/fast_api.py
 ```
 
 Access: <http://127.0.0.1:5000>
@@ -101,6 +104,7 @@ poetry run ruff check .
 ## Build Package
 
 ```bash
+
 poetry clean
 poetry build
 ```

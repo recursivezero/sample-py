@@ -7,9 +7,10 @@ lint:
 	poetry run ruff check .
 	poetry run black --check .
 	poetry run mypy .
-	
+
 hooks:
 	poetry run scripts/setup-hooks.sh
+
 format:
 	poetry run black .
 	poetry run ruff check --fix .
@@ -17,10 +18,8 @@ format:
 type:
 	poetry run mypy .
 
-test:
-	poetry run pytest
 
-run:
+dev:
 	poetry run sample dev
 
 api:
