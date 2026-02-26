@@ -16,12 +16,13 @@ dependencies = [
   "streamlit>=1.49.0",
   "python-box (>=7.3.2,<8.0.0)",
   "uvicorn (>=0.40.0,<0.41.0)",
-  "pymongo (>=4.15.5,<5.0.0)",
   "bs4 (>=0.0.2,<0.0.3)",
   "dotenv (>=0.9.9,<0.10.0)",
   "pydantic (>=2.12.5,<3.0.0)",
   "click (>=8.3.1,<9.0.0)",
 ]
+[project.optional-dependencies]
+mongo = ["pymongo (>=4.15.5,<5.0.0)"]
 
 
 [tool.poetry]
@@ -30,6 +31,7 @@ packages = [
   { include = "assets/images/logo.png", from = "src" },
 ]
 
+include = [{ path = "templates/**/*", format = ["sdist", "wheel"] }]
 
 [project.scripts]
 sample = "sample.cli:cli"
