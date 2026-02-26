@@ -1,0 +1,24 @@
+name: "Auto Format Issue Title"
+run-name: format issue title based on issue prefix
+
+on:
+  issues:
+    types: [opened, edited]
+
+concurrency:
+  group: format-title
+  cancel-in-progress: true
+
+permissions:
+  issues: write
+
+jobs:
+  format_title:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.title, format('{0}-', vars.PROJECT_PREFIX)) == false
+
+    steps:
+      - name: Format issue title
+        uses: recursivezero/action-club/.github/actions/format-issue-title@v0.2.57
+        with:
+          prefix: ${{ vars.PROJECT_PREFIX || 'SAM' }}

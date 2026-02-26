@@ -1,0 +1,25 @@
+name: Issue Sync with Branch
+run-name: Notify whenever a branch created using issue title
+
+on:
+  create:
+    ref_type: branch # Ensure to trigger when a branch is created
+
+permissions:
+  issues: write # Required to comment and add labels
+  contents: read # Required to read the repo metadata
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Link Branch to Issue
+        # Point this to your centralized repository
+        uses: recursivezero/action-club/.github/actions/branch-notify@v0.2.57
+        with:
+          issue_prefix: ${{ vars.PROJECT_PREFIX || 'SAM'}}
+          branch_name: ${{ github.event.ref }}
+          dry_run: false
