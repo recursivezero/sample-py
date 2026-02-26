@@ -45,7 +45,7 @@ poetry install  --all-extras --with dev
 Or manually
 
 ```bash
-poetry install
+make install
 ```
 
 ## How to Run
@@ -84,7 +84,7 @@ Access: <http://127.0.0.1:5000>
 Pre-commit hooks are enabled. If commits fail, run:
 
 ```bash
-poetry run lint
+make lint
 ```
 
 or run individual
@@ -146,7 +146,7 @@ these hooks will
 
 ```bash
 # Install git hooks
-poetry run ./scripts/setup-hooks.sh
+make hooks
 ```
 
 there is `.vscode/Python.code-profile` file; import this as a profile in vscode which include necessary extension for python development.
