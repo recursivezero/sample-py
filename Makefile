@@ -1,5 +1,6 @@
 .PHONY: install lint format type test run api clean
 
+PORT ?= 8501
 install:
 	poetry install
 
@@ -20,7 +21,7 @@ type:
 
 
 dev:
-	poetry run sample dev
+	poetry run sample dev --port $(PORT)
 
 api:
 	poetry run sample api
