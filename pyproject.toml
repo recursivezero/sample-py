@@ -69,3 +69,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.deptry]
 known_first_party = ["sample"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
