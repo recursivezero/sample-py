@@ -69,4 +69,4 @@ jobs:
           NAME=${{ steps.check_version.outputs.pkg_name }}
           VER=${{ steps.check_version.outputs.pkg_ver }}
           echo "### ✅ Success: Published $NAME v$VER" >> $GITHUB_STEP_SUMMARY
-          echo "View your package on TestPyPI: [https://test.pypi.org](https://test.pypi.org)" >> $GITHUB_STEP_SUMMARY
+          echo "View your package on TestPyPI: [https://test.pypi.org](https://test.pypi.org/project/rz-sample/)" >> $GITHUB_STEP_SUMMARY
