@@ -1,16 +1,17 @@
-from pathlib import Path
+from importlib.resources import files
+
 import streamlit as st
 from bs4 import BeautifulSoup
 
 
 def faq_page():
     # Load CSS
-    st.title(":blue[❓FAQs]")
-    css = Path(r"templates/faq.css").read_text()
+    st.title(":blue[❓Frequently Asked Questions]")
+    css = files("sample.templates").joinpath("faq.css").read_text()
     st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
     # Load full HTML
-    html = Path(r"templates/faq.html").read_text()
+    html = files("sample.templates").joinpath("faq.html").read_text()
 
     # Parse and split sections using BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")

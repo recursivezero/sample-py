@@ -17,3 +17,7 @@ All notable changes to this repository will be documented in this file.
 ## [1.4.0] Mar 08, 2026
 
 - Move assets inside src
+
+## [1.5.0] Mar 08, 2026
+
+- Move templates inside src
