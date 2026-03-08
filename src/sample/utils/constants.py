@@ -8,13 +8,16 @@ load_env()
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
 FAQ_TITLE = "FAQs"
+
 logging.basicConfig(
     level=logging.INFO,  # or DEBUG
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
 # --- Asset paths ---
-PROJECT_ROOT = Path(__file__).parents[2]
+PROJECT_ROOT = Path(__file__).parent.parent.resolve()
+
+print(f"Project root: {PROJECT_ROOT}")  # Debugging statement to verify path resolution
 ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
 

@@ -9,6 +9,6 @@ except ImportError:  # Python <3.8
 
 def get_version() -> str:
     try:
-        return version("sample")  # must match pyproject.toml [project].name
+        return version("rz-sample")  # must match pyproject.toml [project].name
     except PackageNotFoundError:
         return "0.0.0"

@@ -13,3 +13,7 @@ All notable changes to this repository will be documented in this file.
 - Restructure folder structure
 - Configure `--port` command to run on custom port
 - Added Technical FAQs
+
+## [1.4.0] Mar 08, 2026
+
+- Move assets inside src
