@@ -7,10 +7,9 @@ on:
 
 env:
   REPO_ALIAS: rz-sample
-  TEST_PYPI_URL: https://test.pypi.org
+  TEST_PYPI_URL: https://test.pypi.org/legacy/
 
 jobs:
-  # JOB 1: Quality Check
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -19,21 +18,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+      - name: Install Ruff
+        run: pip install ruff
+      - name: Run Ruff
+        run: ruff check . && ruff format --check .
 
-      - name: Install Linting Tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff
-
-      - name: Run Ruff Check
-        run: ruff check .
-
-      - name: Run Ruff Format Check
-        run: ruff format --check .
-
-  # JOB 2: Build and Publish (Depends on Lint passing)
   build-and-publish:
-    needs: lint # This ensures publishing ONLY happens if linting passes
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -56,9 +47,13 @@ jobs:
           PACKAGE_VERSION=$(poetry version --short)
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://test.pypi.org)
 
+          echo "pkg_name=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+          echo "pkg_ver=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
+
           if [ "$STATUS" == "200" ]; then
-            echo "Version $PACKAGE_VERSION already exists. Skipping."
             echo "should_publish=false" >> $GITHUB_OUTPUT
+            echo "### ⏭️ Skip: Version $PACKAGE_VERSION already exists" >> $GITHUB_STEP_SUMMARY
+            echo "No new version detected in pyproject.toml. Check it here: [TestPyPI](https://test.pypi.org)" >> $GITHUB_STEP_SUMMARY
           else
             echo "should_publish=true" >> $GITHUB_OUTPUT
           fi
@@ -69,3 +64,9 @@ jobs:
           poetry config repositories.${{ env.REPO_ALIAS }} ${{ env.TEST_PYPI_URL }}
           poetry config pypi-token.${{ env.REPO_ALIAS }} ${{ secrets.TEST_PYPI_TOKEN }}
           poetry publish -r ${{ env.REPO_ALIAS }} --build
+
+          # Add Success Summary
+          NAME=${{ steps.check_version.outputs.pkg_name }}
+          VER=${{ steps.check_version.outputs.pkg_ver }}
+          echo "### ✅ Success: Published $NAME v$VER" >> $GITHUB_STEP_SUMMARY
+          echo "View your package on TestPyPI: [https://test.pypi.org](https://test.pypi.org)" >> $GITHUB_STEP_SUMMARY
