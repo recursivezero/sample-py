@@ -40,8 +40,8 @@
     "window.autoDetectColorScheme": true,
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
-      "pyproject.toml": "poetry.lock,ruff.toml,.pip-audit.toml",
-      ".gitignore": ".gitattributes, .poetryignore, .editorconfig, .eslint*, .npm*, .markdown*, .flake8, .env*, mypy.ini",
+      "pyproject.toml": "poetry.lock,ruff.toml, mypy.ini",
+      ".gitignore": ".gitattributes, .pip*, .poetryignore, .editorconfig, .eslint*, .npm*, .markdown*, .flake8, .env*",
       "README.md": "*.md, requirements.txt,packages.txt",
       "LICENSE": "LICENSE-*"
     },

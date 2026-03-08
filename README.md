@@ -70,7 +70,13 @@ poetry run sample dev
 
 ```
 
-Access: <http://localhost:8501>
+then open UI on : <http://localhost:8501>
+
+to run on different port use `--port` option
+
+```bash
+poetry run sample dev --port 1234
+```
 
 ## Run FastAPI Server
 
@@ -176,4 +182,5 @@ poetry env remove <environment-full-name>
 - [Python Tips](https://www.airplane.dev/blog/12-useful-python-scripts-for-developers)
 - [Poetry Docs](https://python-poetry.org/docs/)
 - [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
+- [Useful Poetry commands](./docs//POETRY_COMMANDS.md)nning_mypy.html#missing-imports)
 - [Useful Poetry commands](./docs//POETRY_COMMANDS.md)

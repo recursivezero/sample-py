@@ -54,6 +54,7 @@ peina
 piexif
 pipreqs
 pipx
+pipyrc
 poetryignore
 profonity
 projectx
@@ -69,6 +70,7 @@ readtext
 redoc
 regen
 Roboflow
+Sample
 scikit
 selectbox
 sentencepiece
@@ -83,7 +85,6 @@ stefanzweifel
 streamlit
 Succesfully
 sucess
-Sample
 tobytes
 torchvision
 txtl
