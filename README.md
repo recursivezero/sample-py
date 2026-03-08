@@ -173,16 +173,15 @@ poetry env remove <environment-full-name>
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://github.com/recursivezero/sample-py/blob/main/LICENSE)
 
 ## References
 
-[unix-setup]: (https://github.com/recursivezero/python/wiki/setup-for-osx)
-[windows-setup]: (https://github.com/recursivezero/python/wiki/setup-for-windows)
+[unix-setup]: https://github.com/recursivezero/python/wiki/setup-for-osx
+[windows-setup]: https://github.com/recursivezero/python/wiki/setup-for-windows
 
 - [Python Downloads](https://www.python.org/downloads)
 - [Virtualenv Docs](https://docs.python.org/3/library/venv.html)
 - [Poetry Docs](https://python-poetry.org/docs/)
 - [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
-- [Useful Poetry commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS.md)
 - [Useful Poetry commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS.md)
