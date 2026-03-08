@@ -61,6 +61,7 @@ projectx
 pycache
 pyenv
 pyflakes
+pypirc
 pypoetry
 pyproject
 pytest
@@ -85,6 +86,7 @@ stefanzweifel
 streamlit
 Succesfully
 sucess
+testpy
 tobytes
 torchvision
 txtl

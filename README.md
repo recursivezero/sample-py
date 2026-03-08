@@ -1,6 +1,6 @@
-# Fabric Generator and Search Utility
+# Sample-py
 
-A Streamlit template for Recursive Zero repository
+A streamlit, fast api boilerplate for python development
 
 ## Installation Guide
 
@@ -12,9 +12,9 @@ A Streamlit template for Recursive Zero repository
 
 ## Getting Started
 
-- [Unix/macOS Setup Guide](./docs/setup-for-osx.md)
+- [Unix/macOS Setup Guide][unix-setup]
 
-- [Windows Setup Guide](./docs/setup-for-windows.md)
+- [Windows Setup Guide][windows-setup]
 
 ## Poetry Setup
 
@@ -177,10 +177,12 @@ poetry env remove <environment-full-name>
 
 ## References
 
+[unix-setup]: (https://github.com/recursivezero/python/wiki/setup-for-osx)
+[windows-setup]: (https://github.com/recursivezero/python/wiki/setup-for-windows)
+
 - [Python Downloads](https://www.python.org/downloads)
 - [Virtualenv Docs](https://docs.python.org/3/library/venv.html)
-- [Python Tips](https://www.airplane.dev/blog/12-useful-python-scripts-for-developers)
 - [Poetry Docs](https://python-poetry.org/docs/)
 - [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
-- [Useful Poetry commands](./docs//POETRY_COMMANDS.md)nning_mypy.html#missing-imports)
-- [Useful Poetry commands](./docs//POETRY_COMMANDS.md)
+- [Useful Poetry commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS.md)
+- [Useful Poetry commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS.md)
