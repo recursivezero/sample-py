@@ -184,4 +184,4 @@ poetry env remove <environment-full-name>
 - [Virtualenv Docs](https://docs.python.org/3/library/venv.html)
 - [Poetry Docs](https://python-poetry.org/docs/)
 - [MyPy Docs](https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports)
-- [Useful Poetry commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS.md)
+- [Useful Poetry Commands](https://github.com/recursivezero/python/wiki/POETRY_COMMANDS)
