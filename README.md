@@ -45,7 +45,7 @@ poetry install  --all-extras --with dev
 Or manually
 
 ```bash
-poetry install
+make install
 ```
 
 ## How to Run
@@ -64,7 +64,10 @@ setup `.env.development` and `.env.production` in project root
 ## Run Streamlit App
 
 ```bash
+make dev
+#or
 poetry run sample dev
+
 ```
 
 Access: <http://localhost:8501>
@@ -72,9 +75,9 @@ Access: <http://localhost:8501>
 ## Run FastAPI Server
 
 ```bash
+make api
+#OR
 poetry run sample api
-# OR
-python src/api/fast_api.py
 ```
 
 Access: <http://127.0.0.1:5000>
@@ -84,7 +87,7 @@ Access: <http://127.0.0.1:5000>
 Pre-commit hooks are enabled. If commits fail, run:
 
 ```bash
-poetry run lint
+make lint
 ```
 
 or run individual
@@ -101,6 +104,7 @@ poetry run ruff check .
 ## Build Package
 
 ```bash
+
 poetry clean
 poetry build
 ```
@@ -146,7 +150,7 @@ these hooks will
 
 ```bash
 # Install git hooks
-poetry run ./scripts/setup-hooks.sh
+make hooks
 ```
 
 there is `.vscode/Python.code-profile` file; import this as a profile in vscode which include necessary extension for python development.

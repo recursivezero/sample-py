@@ -22,10 +22,13 @@ def cli(ctx, version):
 
 
 @cli.command(help="Run the Sample Streamlit app.")
-def dev():
+@click.option(
+    "--port", default=8501, show_default=True, help="Port to run the Streamlit app on."
+)
+def dev(port: int):
     from sample.__main__ import main
 
-    main()
+    main(port)
 
 
 @cli.command(help="Run the Sample FastAPI backend.")
