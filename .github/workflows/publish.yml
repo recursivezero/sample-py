@@ -1,4 +1,5 @@
 name: CI & Publish to TestPyPI
+run-name: Publish Package to TestPyPI
 
 on:
   push:
@@ -43,19 +44,24 @@ jobs:
       - name: Check if version exists
         id: check_version
         run: |
+          # 1. Get metadata from pyproject.toml
           PACKAGE_NAME=$(poetry version | awk '{print $1}')
           PACKAGE_VERSION=$(poetry version --short)
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://test.pypi.org)
 
           echo "pkg_name=$PACKAGE_NAME" >> $GITHUB_OUTPUT
           echo "pkg_ver=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
 
+          # 2. Check the SPECIFIC version JSON endpoint
+          # We use the JSON API because it's reliable for bots
+          URL="https://test.pypi.org/pypi/$PACKAGE_NAME/$PACKAGE_VERSION/json"
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$URL")
+
           if [ "$STATUS" == "200" ]; then
             echo "should_publish=false" >> $GITHUB_OUTPUT
             echo "### ⏭️ Skip: Version $PACKAGE_VERSION already exists" >> $GITHUB_STEP_SUMMARY
-            echo "No new version detected in pyproject.toml. Check it here: [TestPyPI](https://test.pypi.org)" >> $GITHUB_STEP_SUMMARY
           else
             echo "should_publish=true" >> $GITHUB_OUTPUT
+            echo "### 🚀 New version $PACKAGE_VERSION detected" >> $GITHUB_STEP_SUMMARY
           fi
 
       - name: Configure and Publish
