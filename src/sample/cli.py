@@ -1,4 +1,5 @@
 import click
+from sample.utils.constants import PORT, PORT_API
 
 from . import __version__
 
@@ -23,7 +24,10 @@ def cli(ctx, version):
 
 @cli.command(help="Run the Sample Streamlit app.")
 @click.option(
-    "--port", default=8501, show_default=True, help="Port to run the Streamlit app on."
+    "--port",
+    default=int(PORT),
+    show_default=True,
+    help="Port to run the Streamlit app on.",
 )
 def dev(port: int):
     from sample.__main__ import main
@@ -34,7 +38,7 @@ def dev(port: int):
 @cli.command(help="Run the Sample FastAPI backend.")
 @click.option(
     "--port",
-    default=5000,
+    default=int(PORT_API),
     show_default=True,
     help="Port to run the FastAPI backend on.",
 )
