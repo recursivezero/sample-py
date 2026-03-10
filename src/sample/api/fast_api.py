@@ -102,7 +102,7 @@ def greet_user(payload: GreetRequest):
 app.include_router(greet_router)
 
 
-def start():
+def start(port: int = 5000):
     import uvicorn
 
     print(f"🧵 {__version__}\n")
@@ -112,8 +112,8 @@ def start():
         print(
             "⚠️ Could not connect to the database.Please check database configuration."
         )
-    uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=5000, reload=True)
+    uvicorn.run("sample.api.fast_api:app", host="127.0.0.1", port=port, reload=True)
 
 
 if __name__ == "__main__":
-    start()
+    start(port=5000)
