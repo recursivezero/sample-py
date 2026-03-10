@@ -1,6 +1,7 @@
 .PHONY: install lint format type test run api clean
 
 PORT ?= 8501
+PORT_API ?= 5000
 install:
 	poetry install
 
@@ -24,7 +25,7 @@ dev:
 	poetry run sample dev --port $(PORT)
 
 api:
-	poetry run sample api
+	poetry run sample api --port $(PORT_API)
 
 clean:
 	find . -type d -name "__pycache__" -exec rm -rf {} +

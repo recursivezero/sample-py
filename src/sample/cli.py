@@ -32,7 +32,13 @@ def dev(port: int):
 
 
 @cli.command(help="Run the Sample FastAPI backend.")
-def api():
+@click.option(
+    "--port",
+    default=5000,
+    show_default=True,
+    help="Port to run the FastAPI backend on.",
+)
+def api(port: int):
     from sample.api.fast_api import start
 
-    start()
+    start(port)

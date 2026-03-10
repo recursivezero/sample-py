@@ -65,8 +65,8 @@ setup `.env.development` and `.env.production` in project root
 
 ```bash
 make dev
-#or
-poetry run sample dev
+#or with custom port
+poetry run sample dev --port 8051
 
 ```
 
@@ -76,8 +76,8 @@ Access: <http://localhost:8501>
 
 ```bash
 make api
-#OR
-poetry run sample api
+#OR with custom port
+poetry run sample api --port 5000
 ```
 
 Access: <http://127.0.0.1:5000>
@@ -134,9 +134,9 @@ pip install sample
 
 ## CLI Shortcuts
 
-`sample dev` → Launch Streamlit UI
+`make dev` → Launch Streamlit UI
 
-`sample api` → Launch FastAPI
+`make api` → Launch FastAPI
 
 current version will be printed on start of above commands.
 
