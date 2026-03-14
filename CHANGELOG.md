@@ -21,3 +21,7 @@ All notable changes to this repository will be documented in this file.
 ## [1.5.0] Mar 08, 2026
 
 - Move templates inside src
+
+## [1.5.2] Mar 14, 2026
+
+- port priority from cli to env to fallback
