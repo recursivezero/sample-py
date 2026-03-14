@@ -12,7 +12,7 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
           persist-credentials: true
@@ -51,6 +51,8 @@ jobs:
       - name: Install dependencies
         if: steps.deps.outputs.changed == 'true'
         run: poetry install
+
+      - uses: lgeiger/pyflakes-action@master
 
       - name: Export requirements
         if: steps.deps.outputs.changed == 'true'

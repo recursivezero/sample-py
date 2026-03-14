@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Link Branch to Issue
         # Point this to your centralized repository
@@ -22,4 +22,3 @@ jobs:
         with:
           issue_prefix: ${{ vars.PROJECT_PREFIX || 'SAM'}}
           branch_name: ${{ github.event.ref }}
-          dry_run: false
