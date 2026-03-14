@@ -7,6 +7,7 @@ from sample.utils.config import load_env
 load_env()
 APP_TITLE = ":blue[Greeting Feature]"
 DEFAULT_GREETING = "Hello"
+DEFAULT_PORT = 8501
 FAQ_TITLE = "FAQs"
 
 logging.basicConfig(
@@ -22,7 +23,7 @@ ASSETS_DIR = PROJECT_ROOT / "assets" / "images"
 COMPANY_LOGO = ASSETS_DIR / "logo.png"
 
 
-def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
+def safe_get(env_key: str = "", default: str = "") -> str:
     """
     Safely retrieve a configuration value from:
     1. Streamlit secrets (if secrets.toml exists)
@@ -42,7 +43,7 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
             source = "env"
 
     logging.info(
-        f"Loaded config for '{env_key or secret_path}' from [{source}]",
+        f"Loaded config for '{env_key}' from [{source}]",
         extra={"color": "yellow"},
     )
     return value
@@ -50,13 +51,17 @@ def safe_get(secret_path: str, env_key: str = "", default: str = "") -> str:
 
 def get_mongo_config():
     return {
-        "MONGODB_URI": safe_get("mongodb.MONGODB_URI", "MONGODB_URI"),
-        "DATABASE_NAME": safe_get("mongodb.DATABASE_NAME", "DATABASE_NAME"),
+        "MONGODB_URI": safe_get("MONGODB_URI"),
+        "DATABASE_NAME": safe_get("DATABASE_NAME"),
     }
+
+
+PORT = safe_get("PORT", DEFAULT_PORT)
+PORT_API = safe_get("API_PORT", int(PORT) + 1)
 
 
 MONGO_CONFIG = get_mongo_config()
 # === Environment Selection ===
-ENVIRONMENT = safe_get("env.ENVIRONMENT", "ENVIRONMENT", "development").lower()
+ENVIRONMENT = safe_get("ENVIRONMENT", "development").lower()
 logging.info(f"Environment: {ENVIRONMENT}", extra={"color": "yellow"})
 logging.info(f"Project root: {PROJECT_ROOT}", extra={"color": "yellow"})
