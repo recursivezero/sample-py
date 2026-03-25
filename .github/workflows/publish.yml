@@ -6,6 +6,8 @@ on:
     branches:
       - release
 
+environment: pypi
+
 concurrency:
   group: pypi-publish
   cancel-in-progress: true
@@ -67,6 +69,10 @@ jobs:
             echo "should_publish=true" >> $GITHUB_OUTPUT
             echo "### 🚀 New version $PACKAGE_VERSION detected" >> $GITHUB_STEP_SUMMARY
           fi
+      - name: Debug OIDC
+        run: |
+          echo "ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL"
+          echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN=$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
 
       - name: Configure and Publish
         if: steps.check_version.outputs.should_publish == 'true'
