@@ -76,12 +76,11 @@ jobs:
 
       - name: Configure and Publish
         if: steps.check_version.outputs.should_publish == 'true'
-        run: |
-          # poetry config repositories.${{ env.REPO_ALIAS }} ${{ env.PYPI_URL }}
-          # poetry config pypi-token.${{ env.REPO_ALIAS }} ${{ secrets.PYPI_TOKEN }}
-          poetry publish --build
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
 
-          # Add Success Summary
+      - name: Add Success Summary
+        run: |
           NAME=${{ steps.check_version.outputs.pkg_name }}
           VER=${{ steps.check_version.outputs.pkg_ver }}
           echo "### ✅ Success: Published $NAME v$VER" >> $GITHUB_STEP_SUMMARY
