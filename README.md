@@ -3,6 +3,7 @@
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rz-sample)
 ![pypi](https://badgen.net/pypi/v/rz-sample)
 ![License](https://badgen.net/pypi/license/rz-sample)
+![Publish](https://github.com/recursivezero/rz-sample/actions/workflows/publish.yml/badge.svg)
 
 poetry + streamlit + fast api boilerplate for python development.
 
