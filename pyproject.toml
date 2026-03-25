@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rz-sample"
-version = "1.5.2"
+version = "2.0.1"
 description = "A python boilerplate for fastapi and streamlit projects."
 authors = ["recursivezero <recursivezero@outlook.com>"]
 license = "MIT"

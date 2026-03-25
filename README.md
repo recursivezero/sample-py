@@ -1,6 +1,10 @@
-# Sample-py
+# RZ-Sample
 
-A streamlit, fast api boilerplate for python development
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/rz-sample)
+![pypi](https://badgen.net/pypi/v/rz-sample)
+![License](https://badgen.net/pypi/license/rz-sample)
+
+poetry + streamlit + fast api boilerplate for python development.
 
 ## Installation Guide
 
@@ -65,7 +69,7 @@ setup `.env.development` and `.env.production` in project root
 
 ```bash
 make dev
-#or with custom port
+# OR with custom port
 poetry run sample dev --port 8051
 
 ```
@@ -82,7 +86,7 @@ poetry run sample dev --port 1234
 
 ```bash
 make api
-#OR with custom port
+# OR with custom port
 poetry run sample api --port 5000
 ```
 
@@ -105,39 +109,6 @@ poetry run mypy .
 poetry run ruff check .
 ```
 
-## Build & Packaging
-
-## Build Package
-
-```bash
-
-poetry clean
-poetry build
-```
-
-Artifacts in `dist/`
-
-- sample-x.y.0-py3-none-any.whl
-- sample-x.y.0.tar.gz
-
-## Test Locally
-
-```bash
-python -m venv .venv-dist
-source .venv-dist/bin/activate
-# Windows
-.venv-dist\Scripts\activate
-```
-
-### Install package
-
-```bash
-pip install dist/*.whl
-pip install --upgrade dist/*.whl
-# Install extras:
-pip install sample
-```
-
 ## CLI Shortcuts
 
 `make dev` → Launch Streamlit UI
@@ -145,21 +116,6 @@ pip install sample
 `make api` → Launch FastAPI
 
 current version will be printed on start of above commands.
-
-## Install GIT hooks
-
-these hooks will
-
-- Check for lint and audit for security before commit
-- Append branch name in commit message
-- Generate requirements.txt on checkout on new branch
-
-```bash
-# Install git hooks
-make hooks
-```
-
-there is `.vscode/Python.code-profile` file; import this as a profile in vscode which include necessary extension for python development.
 
 ## Troubleshooting
 
