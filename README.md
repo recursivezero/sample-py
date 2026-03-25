@@ -129,7 +129,7 @@ poetry env remove <environment-full-name>
 
 ## License
 
-[MIT](https://github.com/recursivezero/sample-py/blob/main/LICENSE)
+[MIT](https://github.com/recursivezero/rz-sample/blob/main/LICENSE)
 
 ## References
 

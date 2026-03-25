@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rz-sample"
-version = "2.0.1"
+version = "2.0.2"
 description = "A python boilerplate for fastapi and streamlit projects."
 authors = ["recursivezero <recursivezero@outlook.com>"]
 license = "MIT"
@@ -36,10 +36,10 @@ include = [
 ]
 
 [tool.poetry.urls]
-"Homepage" = "https://github.com/recursivezero/sample-py"
-"Documentation" = "https://github.com/recursivezero/sample-py#readme"
-"Repository" = "https://github.com/recursivezero/sample-py.git"
-"Issues" = "https://github.com/recursivezero/sample-py/issues"
+"Homepage" = "https://github.com/recursivezero/rz-sample"
+"Documentation" = "https://github.com/recursivezero/rz-sample#readme"
+"Repository" = "https://github.com/recursivezero/rz-sample.git"
+"Issues" = "https://github.com/recursivezero/rz-sample/issues"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
