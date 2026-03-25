@@ -74,14 +74,17 @@ jobs:
           echo "ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL"
           echo "ACTIONS_ID_TOKEN_REQUEST_TOKEN=$ACTIONS_ID_TOKEN_REQUEST_TOKEN"
 
+      - name: Build package
+        run: poetry build
+
       - name: Configure and Publish
         if: steps.check_version.outputs.should_publish == 'true'
-      - name: Publish
         uses: pypa/gh-action-pypi-publish@release/v1
 
       - name: Add Success Summary
+        if: steps.check_version.outputs.should_publish == 'true'
         run: |
           NAME=${{ steps.check_version.outputs.pkg_name }}
           VER=${{ steps.check_version.outputs.pkg_ver }}
           echo "### ✅ Success: Published $NAME v$VER" >> $GITHUB_STEP_SUMMARY
-          echo "View your package on PyPI: [rz-sample](https://pypi.org/project/$NAME/)" >> $GITHUB_STEP_SUMMARY
+          echo "View your package on PyPI: https://pypi.org/project/$NAME/" >> $GITHUB_STEP_SUMMARY
