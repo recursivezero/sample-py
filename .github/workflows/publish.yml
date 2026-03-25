@@ -6,8 +6,6 @@ on:
     branches:
       - release
 
-environment: pypi
-
 concurrency:
   group: pypi-publish
   cancel-in-progress: true
@@ -32,6 +30,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    environment: pypi
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
@@ -69,6 +68,7 @@ jobs:
             echo "should_publish=true" >> $GITHUB_OUTPUT
             echo "### 🚀 New version $PACKAGE_VERSION detected" >> $GITHUB_STEP_SUMMARY
           fi
+
       - name: Debug OIDC
         run: |
           echo "ACTIONS_ID_TOKEN_REQUEST_URL=$ACTIONS_ID_TOKEN_REQUEST_URL"
